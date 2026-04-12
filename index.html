@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabien Naimon — Game / Tech Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111214;--bg-card:#18191c;--bg-card-hover:#1f2024;--bg-section:#141517;
+  --border:rgba(255,255,255,0.07);--border-mid:rgba(255,255,255,0.12);--border-hover:rgba(255,255,255,0.18);
+  --text-primary:#edeae4;--text-secondary:#8a8780;--text-muted:#44423f;
+  --accent:#c8a96e;--accent-dim:rgba(200,169,110,0.10);--accent-dim2:rgba(200,169,110,0.05);--accent-border:rgba(200,169,110,0.25);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(200,169,110,0.25);border-radius:3px}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(17,18,20,0.90);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;color:var(--text-primary);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.8rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-pill{padding:0.45rem 1.1rem;border:1px solid var(--border-mid);border-radius:999px;color:var(--text-primary) !important;transition:border-color 0.2s,background 0.2s,color 0.2s !important}
+.nav-pill:hover{background:var(--accent-dim) !important;border-color:var(--accent) !important;color:var(--accent) !important}
+.nav-pill.linkedin{background:var(--accent-dim2);border-color:var(--accent-border)}
+/* HERO */
+.hero{min-height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:9rem 2rem 3rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:15%;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(200,169,110,0.07) 0%,transparent 65%);pointer-events:none}
+.hero-eyebrow{font-size:0.73rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;justify-content:center;gap:0.75rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:32px;height:1px;background:var(--accent);opacity:0.6}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.5rem,9vw,7.5rem);line-height:0.92;letter-spacing:-0.04em;max-width:900px;margin-bottom:1.75rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:1rem;color:var(--text-secondary);max-width:460px;font-weight:300;margin-bottom:0.75rem;line-height:1.75}
+.hero-welcome{font-size:1rem;color:var(--text-secondary);max-width:480px;font-weight:300;margin-bottom:2.5rem;line-height:1.8;font-style:italic;opacity:0.8}
+.hero-ctas{display:flex;gap:0.85rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.85rem;background:var(--accent);color:#0f0f0f;border-radius:999px;font-weight:600;font-size:0.875rem;text-decoration:none;letter-spacing:0.01em;transition:opacity 0.2s,transform 0.2s}
+.btn-primary:hover{opacity:0.85;transform:translateY(-2px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.85rem;border:1px solid var(--border-hover);border-radius:999px;color:var(--text-secondary);font-size:0.875rem;text-decoration:none;transition:border-color 0.2s,color 0.2s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+/* DIVIDER */
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,var(--border-mid),transparent)}
+/* SECTIONS */
+section{padding:7rem 3rem}
+.section-label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem}
+.section-header{margin-bottom:3.5rem}
+.section-header h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.75rem,3.5vw,2.75rem);letter-spacing:-0.025em;line-height:1.1}
+.section-header p{margin-top:0.65rem;color:var(--text-secondary);font-size:0.9rem;font-weight:300;max-width:480px}
+/* CATEGORY */
+.cat-block{margin-bottom:4.5rem}
+.cat-block:last-child{margin-bottom:0}
+.cat-title{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.cat-title h3{font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;color:var(--text-secondary);text-transform:uppercase;white-space:nowrap}
+.cat-line{flex:1;height:1px;background:var(--border)}
+.cat-count{font-size:0.68rem;color:var(--text-muted);letter-spacing:0.1em;white-space:nowrap}
+.sub-label{font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.85rem;margin-top:2rem}
+/* PROJECT GRID */
+.projects-grid{display:grid;gap:1px;background:var(--border)}
+.cols-3{grid-template-columns:repeat(3,1fr)}.cols-2{grid-template-columns:repeat(2,1fr)}.cols-1{grid-template-columns:1fr}
+.project-card{background:var(--bg);cursor:pointer;text-decoration:none;color:inherit;display:block;overflow:hidden;transition:background 0.3s;position:relative}
+.project-card:hover{background:var(--bg-card-hover)}
+.project-card.locked{cursor:default}.project-card.locked:hover{background:var(--bg)}
+.thumb-wrapper{overflow:hidden;position:relative;background:#0d0d0f}
+.thumb-wrapper::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(17,18,20,0.5) 100%)}
+.project-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;filter:grayscale(25%) brightness(0.9);transition:filter 0.5s,transform 0.5s;transform-origin:center}
+.project-card:hover:not(.locked) .project-thumb{filter:grayscale(0%) brightness(1);transform:scale(1.04)}
+.locked-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;background:rgba(17,18,20,0.55)}
+.locked-badge{border:1px solid var(--accent-border);background:rgba(200,169,110,0.08);color:var(--accent);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:999px;backdrop-filter:blur(4px)}
+.project-card-inner{padding:1.6rem 1.85rem}
+.project-tags{display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:0.85rem}
+.tag{font-size:0.65rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:999px;background:rgba(255,255,255,0.04);color:var(--text-secondary);border:1px solid var(--border)}
+.tag.hl{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
+.tag.pro{background:rgba(100,120,255,0.08);border-color:rgba(100,120,255,0.2);color:#a0a8ff}
+.project-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;margin-bottom:0.45rem;line-height:1.25}
+.project-desc{font-size:0.855rem;color:var(--text-secondary);font-weight:300;line-height:1.6}
+.project-arrow{position:absolute;top:1.4rem;right:1.4rem;width:28px;height:28px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.75rem;transition:border-color 0.2s,color 0.2s,background 0.2s}
+.project-card:hover:not(.locked) .project-arrow{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start}
+.about-text p{color:var(--text-secondary);font-weight:300;margin-bottom:1.4rem;font-size:1rem;line-height:1.85}
+.about-text strong{color:var(--text-primary);font-weight:500}
+.skills-block{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.skill-group h4{font-size:0.66rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.7rem}
+.skill-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.skill-list li{font-size:0.865rem;color:var(--text-secondary);padding:0.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.6rem;font-weight:300}
+.skill-list li::before{content:'';display:block;width:3px;height:3px;border-radius:50%;background:var(--accent);flex-shrink:0;opacity:0.7}
+/* CV */
+.cv-section{background:var(--bg-section)}
+.cv-layout{display:grid;grid-template-columns:1fr 1.8fr;gap:5rem;align-items:start}
+.cv-block{margin-bottom:2.25rem}
+.cv-block h4{font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.85rem;padding-bottom:0.45rem;border-bottom:1px solid var(--border)}
+.cv-block p,.cv-block li{font-size:0.85rem;color:var(--text-secondary);font-weight:300;line-height:1.65}
+.cv-block ul{list-style:none;display:flex;flex-direction:column;gap:0.25rem}
+.cv-block li{display:flex;align-items:flex-start;gap:0.5rem}
+.cv-block li::before{content:'—';color:var(--text-muted);flex-shrink:0;margin-top:0.05rem}
+.exp-block{margin-bottom:2.25rem;padding-bottom:2.25rem;border-bottom:1px solid var(--border)}
+.exp-block:last-child{border-bottom:none;margin-bottom:0}
+.exp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.25rem;gap:1rem}
+.exp-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.975rem;letter-spacing:-0.01em}
+.exp-date{font-size:0.77rem;color:var(--text-muted);font-weight:300;white-space:nowrap}
+.exp-company{font-size:0.83rem;color:var(--accent);margin-bottom:0.7rem;font-weight:400}
+.exp-body{font-size:0.855rem;color:var(--text-secondary);font-weight:300;line-height:1.7}
+.exp-body ul{margin-top:0.5rem;list-style:none;display:flex;flex-direction:column;gap:0.25rem}
+.exp-body li{display:flex;align-items:flex-start;gap:0.6rem}
+.exp-body li::before{content:'·';color:var(--accent);flex-shrink:0}
+.cv-section-title{font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin:2rem 0 1rem;padding-top:2rem;border-top:1px solid var(--border)}
+/* CONTACT */
+.contact-inner{text-align:center;max-width:540px;margin:0 auto}
+.contact-inner p{color:var(--text-secondary);font-weight:300;font-size:1rem;margin-bottom:2.5rem;line-height:1.8}
+.contact-links{display:flex;justify-content:center;gap:0.85rem;flex-wrap:wrap}
+/* FOOTER */
+footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:0.77rem}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--text-muted)}
+.footer-logo span{color:var(--accent);opacity:0.5}
+/* PROJECT FULLPAGE */
+.project-page{display:none;position:fixed;inset:0;z-index:200;overflow-y:auto;background:var(--bg)}
+.project-page.open{display:block}
+.project-page-inner{max-width:820px;margin:0 auto;padding:6rem 2rem 8rem}
+.pp-back{display:inline-flex;align-items:center;gap:0.6rem;color:var(--text-secondary);font-size:0.85rem;cursor:pointer;background:none;border:none;padding:0;margin-bottom:2.5rem;transition:color 0.2s}
+.pp-back:hover{color:var(--accent)}
+.pp-hero{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;margin-bottom:2.5rem}
+.pp-tags{display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.project-page h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-0.03em;line-height:1.05;margin-bottom:1.75rem}
+.pp-body h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-0.01em;margin:2.25rem 0 1rem;color:var(--text-primary)}
+.pp-body p{color:var(--text-secondary);font-weight:300;line-height:1.8;margin-bottom:1rem;font-size:0.95rem}
+.pp-body strong{color:var(--text-primary);font-weight:500}
+.pp-body ul{margin:0.5rem 0 1rem;list-style:none;display:flex;flex-direction:column;gap:0.35rem}
+.pp-body li{font-size:0.9rem;color:var(--text-secondary);font-weight:300;display:flex;align-items:flex-start;gap:0.7rem;padding:0.15rem 0}
+.pp-body li::before{content:'·';color:var(--accent);flex-shrink:0}
+.pp-body blockquote{border-left:2px solid var(--accent);padding:0.75rem 1.25rem;margin:1.25rem 0;font-style:italic;color:var(--text-secondary);font-size:0.95rem}
+.pp-screenshots{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1.5rem 0}
+.pp-screenshots img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;border:1px solid var(--border)}
+.pp-screenshots.full{grid-template-columns:1fr}
+.role-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:1.25rem 0}
+.role-item{background:var(--bg-card);padding:1.15rem 1.4rem}
+.role-label{font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.5rem}
+.role-val{font-size:0.9rem;color:var(--text-secondary);font-weight:300;line-height:1.55}
+.pp-links{display:flex;gap:0.8rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.pp-note{background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--accent);padding:0.85rem 1.2rem;border-radius:4px;margin:1.25rem 0;font-size:0.855rem;color:var(--text-secondary);font-weight:300}
+.pp-note strong{color:var(--accent);font-weight:500}
+.locked-page{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;gap:1rem}
+.locked-page h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.75rem;letter-spacing:-0.02em}
+.locked-page p{color:var(--text-secondary);font-weight:300;max-width:380px;font-size:0.95rem;line-height:1.75}
+.yt-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;border:1px solid var(--border);margin:1.5rem 0}
+.yt-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.anim{animation:fadeUp 0.75s ease both}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.22s}.d3{animation-delay:0.38s}.d4{animation-delay:0.55s}
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}.nav-links{gap:1.1rem}
+  section{padding:5rem 1.5rem}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .cv-layout{grid-template-columns:1fr;gap:3rem}
+  .cols-3{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:0.75rem;text-align:center}
+  .project-page-inner{padding:4rem 1.5rem 6rem}
+  .pp-screenshots{grid-template-columns:1fr}
+  .skills-block{grid-template-columns:1fr}
+}
+@media(max-width:580px){.cols-3,.cols-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo" onclick="showMain();return false;">FN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects" onclick="navTo('projects');return false;">Projects</a></li>
+    <li><a href="#about" onclick="navTo('about');return false;">About</a></li>
+    <li><a href="#cv" onclick="navTo('cv');return false;">CV</a></li>
+    <li><a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="nav-pill linkedin">LinkedIn ↗</a></li>
+    <li><a href="mailto:f.naimon@gmail.com" class="nav-pill">Contact</a></li>
+  </ul>
+</nav>
+
+<div id="main-page">
+
+<section class="hero">
+  <div class="hero-eyebrow anim">Game / Tech Designer · Bordeaux</div>
+  <h1 class="anim d1">Fabien<br><em>Naimon</em></h1>
+  <p class="hero-sub anim d2">Game systems design, level design, and AI tooling integration in creative workflows.</p>
+  <p class="hero-welcome anim d3">Welcome — enjoy your visit, and feel free to contact me in French or English.</p>
+  <div class="hero-ctas anim d4">
+    <a href="#projects" onclick="navTo('projects');return false;" class="btn-primary">See projects ↓</a>
+    <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    <a href="mailto:f.naimon@gmail.com" class="btn-secondary">f.naimon@gmail.com</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="projects">
+  <div class="section-label">Portfolio</div>
+  <div class="section-header">
+    <h2>Projects</h2>
+    <p>Professional work and personal creations.</p>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-title">
+      <h3>Professional Projects</h3><div class="cat-line"></div><span class="cat-count">01</span>
+    </div>
+    <div class="projects-grid cols-1">
+      <a class="project-card" onclick="openProject('cthulhu'); return false;" href="#">
+        <div class="thumb-wrapper" style="overflow:hidden;max-height:320px">
+          <img class="project-thumb" src="cthulhu_main.webp" alt="Cthulhu The Cosmic Abyss" style="aspect-ratio:21/9;object-position:center top">
+        </div>
+        <div class="project-card-inner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem">
+          <div>
+            <div class="project-tags">
+              <span class="tag pro">QA Analyst</span><span class="tag pro">Quest Design</span><span class="tag pro">Cinematic Design</span><span class="tag pro">Big Bad Wolf Studio</span><span class="tag pro">Dec. 2023 – Present</span>
+            </div>
+            <h3>Cthulhu: The Cosmic Abyss</h3>
+            <p class="project-desc">QA Analyst & cross-disciplinary contributor at Big Bad Wolf Studio — PC, Xbox Series X, PS5. QA, game design feedback, quest design, and cinematic post-production.</p>
+          </div>
+          <div class="project-arrow">↗</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-title">
+      <h3>Personal Projects</h3><div class="cat-line"></div><span class="cat-count">06</span>
+    </div>
+    <div class="sub-label" style="margin-top:0">Games</div>
+    <div class="projects-grid cols-3">
+      <a class="project-card" onclick="openProject('way'); return false;" href="#">
+        <div class="thumb-wrapper"><img class="project-thumb" src="https://static.wixstatic.com/media/ced783_2ecb92c67359406d941d90006aafae89~mv2.png/v1/fill/w_980,h_553,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_2ecb92c67359406d941d90006aafae89~mv2.png" alt="Where Are You?"></div>
+        <div class="project-card-inner">
+          <div class="project-arrow">↗</div>
+          <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Co-op</span></div>
+          <h3>Where Are You?</h3>
+          <p class="project-desc">Online co-op puzzle game. Omnipresent AI, scale variation mechanic, 3 levels.</p>
+        </div>
+      </a>
+      <a class="project-card" onclick="openProject('bomber'); return false;" href="#">
+        <div class="thumb-wrapper"><img class="project-thumb" src="https://static.wixstatic.com/media/ced783_556584c81bc44d81a5c2bff9a2b8497d~mv2.png/v1/fill/w_980,h_553,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_556584c81bc44d81a5c2bff9a2b8497d~mv2.png" alt="Bomber Bash"></div>
+        <div class="project-card-inner">
+          <div class="project-arrow">↗</div>
+          <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Party Game</span><span class="tag">Game Jam</span></div>
+          <h3>Bomber Bash</h3>
+          <p class="project-desc">Ynov Game Jam 2022 winner. Competitive multiplayer party game, destructible terrain.</p>
+        </div>
+      </a>
+      <a class="project-card" onclick="openProject('tlr'); return false;" href="#">
+        <div class="thumb-wrapper"><img class="project-thumb" src="https://static.wixstatic.com/media/ced783_649e9974675d49aa98787bcf052a13b7~mv2.png/v1/fill/w_980,h_553,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_649e9974675d49aa98787bcf052a13b7~mv2.png" alt="Turbo Light Rush"></div>
+        <div class="project-card-inner">
+          <div class="project-arrow">↗</div>
+          <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Steam</span></div>
+          <h3>Turbo Light Rush</h3>
+          <p class="project-desc">Synthwave Run & Gun released on Steam and Android. 13 levels, original OST.</p>
+        </div>
+      </a>
+    </div>
+    <div class="sub-label">Level Design & Environment</div>
+    <div class="projects-grid cols-3">
+      <a class="project-card" onclick="openProject('monastery'); return false;" href="#">
+        <div class="thumb-wrapper"><img class="project-thumb" src="https://static.wixstatic.com/media/ced783_e3ba42e8bf8341e89148904879c205f3~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_e3ba42e8bf8341e89148904879c205f3~mv2.png" alt="The Monastery"></div>
+        <div class="project-card-inner">
+          <div class="project-arrow">↗</div>
+          <div class="project-tags"><span class="tag hl">Level Design</span><span class="tag">Narrative</span><span class="tag">UE5</span></div>
+          <h3>The Monastery</h3>
+          <p class="project-desc">3-zone interconnected area, spatial storytelling, verticality, dual ending.</p>
+        </div>
+      </a>
+      <a class="project-card" onclick="openProject('portal'); return false;" href="#">
+        <div class="thumb-wrapper"><img class="project-thumb" src="https://static.wixstatic.com/media/ced783_041750d790fd4560a8bf9fc5ead4264a~mv2.png/v1/fill/w_980,h_551,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_041750d790fd4560a8bf9fc5ead4264a~mv2.png" alt="Portal 2 Level"></div>
+        <div class="project-card-inner">
+          <div class="project-arrow">↗</div>
+          <div class="project-tags"><span class="tag hl">Level Design</span><span class="tag">Puzzle</span><span class="tag">Portal 2</span></div>
+          <h3>Level Design — Portal 2</h3>
+          <p class="project-desc">Custom laser beam puzzle. Difficulty 2/4, tested across multiple iterations.</p>
+        </div>
+      </a>
+      <a class="project-card" onclick="openProject('enviro'); return false;" href="#">
+        <div class="thumb-wrapper"><img class="project-thumb" src="https://static.wixstatic.com/media/ced783_d54c2db9bbdc4fdab3847f6c1af518ff~mv2.png/v1/fill/w_980,h_551,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_d54c2db9bbdc4fdab3847f6c1af518ff~mv2.png" alt="Environment Design"></div>
+        <div class="project-card-inner">
+          <div class="project-arrow">↗</div>
+          <div class="project-tags"><span class="tag hl">Environment Design</span><span class="tag">UE5</span><span class="tag">World Building</span></div>
+          <h3>Environment Design</h3>
+          <p class="project-desc">Nature, desert planet, jungle temple. Megascan + UE5.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="section-header"><h2>About</h2></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Game & Tech Designer passionate about video games <strong>as systems</strong> — their structure, design, and construction. I craft experiences centered on the <strong>player's intent and interactivity</strong>: what they feel, what they understand, and how space guides their decisions.</p>
+      <p>An effective communicator across disciplines — designers, programmers, artists. I'm proficient in <strong>Unreal Engine 5</strong> and actively integrate <strong>AI tools</strong> (Claude Code, ChatGPT) into my workflows to accelerate the design of tools that help produce efficient Blueprint prototypes. These tools also benefit my colleagues and allow them to speed up their own workflow and processes.</p>
+      <p>Currently QA Analyst at <strong>Big Bad Wolf Studio</strong>, I'm simultaneously building my skills by developing game concepts and sharpening my personal abilities in video editing and production through a <strong>YouTube channel dedicated to video games</strong> — ask me about it, I'd love to talk!</p>
+      <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="btn-primary">LinkedIn ↗</a>
+        <a href="mailto:f.naimon@gmail.com" class="btn-secondary">Get in touch</a>
+      </div>
+    </div>
+    <div class="skills-block">
+      <div class="skill-group">
+        <h4>Design</h4>
+        <ul class="skill-list">
+          <li>Game Design</li><li>Level Design</li><li>3C Design</li>
+          <li>Systemic Design</li><li>Blockout / Grayboxing</li>
+          <li>Spatial Storytelling</li><li>UX / Balancing</li><li>GDD</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Engines & Tools</h4>
+        <ul class="skill-list">
+          <li>Unreal Engine 5</li><li>Blueprint & Packaging</li>
+          <li>Unity</li><li>Claude Code</li>
+          <li>SVN · Jira · Notion</li><li>DaVinci Resolve</li>
+        </ul>
+        <h4 style="margin-top:1.5rem">QA & Technical</h4>
+        <ul class="skill-list">
+          <li>Test Plans / Regression</li>
+          <li>XSX SDK · PS5 SDK</li>
+          <li>CI Builds / Branching</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="cv" class="cv-section">
+  <div class="section-label">Background</div>
+  <div class="section-header">
+    <h2>Curriculum Vitae</h2>
+    <p>Game Designer · Tech Designer · Bordeaux</p>
+  </div>
+  <div class="cv-layout">
+    <div>
+      <div class="cv-block">
+        <h4>Contact</h4>
+        <ul><li>f.naimon@gmail.com</li><li>06 21 44 15 30</li></ul>
+      </div>
+      <div class="cv-block">
+        <h4>Profile</h4>
+        <p>Passionate about video games as systems — their structure, design, and construction. Effective communicator across disciplines. Calm, rigorous, and dedicated. Solid gaming culture built over several decades.</p>
+      </div>
+      <div class="cv-block">
+        <h4>Design</h4>
+        <ul><li>Level Design · Game Design</li><li>3C Design · Systemic Design</li><li>Blockout / Grayboxing</li><li>Spatial Storytelling · UX</li><li>Balancing · GDD</li></ul>
+      </div>
+      <div class="cv-block">
+        <h4>Engines & Tools</h4>
+        <ul><li>Unreal Engine (Blueprint, World Building, Packaging)</li><li>Unity</li><li>SVN · Jira · Trello · Notion · ClickUp</li><li>DaVinci Resolve</li></ul>
+      </div>
+      <div class="cv-block">
+        <h4>QA & Technical</h4>
+        <ul><li>Test plans · Regression testing</li><li>Bug tracking · Static review</li><li>XSX SDK · PS5 SDK</li><li>Branch workflow · CI Builds</li></ul>
+      </div>
+      <div class="cv-block">
+        <h4>AI & Scripting</h4>
+        <ul><li>Claude Code · ChatGPT</li><li>Building tools to accelerate design and QA workflows</li></ul>
+      </div>
+      <div class="cv-block">
+        <h4>Interests</h4>
+        <ul><li>Sound Design</li><li>Weightlifting · Boxing</li><li>YouTube (game design analysis)</li></ul>
+      </div>
+    </div>
+    <div>
+      <p class="cv-section-title" style="margin-top:0;padding-top:0;border-top:none">Experience</p>
+      <div class="exp-block">
+        <div class="exp-head"><span class="exp-title">QA Analyst</span><span class="exp-date">Dec. 2023 – Present</span></div>
+        <div class="exp-company">Cthulhu: The Cosmic Abyss · Big Bad Wolf Studio</div>
+        <div class="exp-body"><ul>
+          <li>QA Analyst / Tester on Cthulhu: The Cosmic Abyss</li>
+          <li>Design and execution of test plans, regression testing, detailed bug reports — PC, Xbox Series X, PS5</li>
+          <li>Design feedback on Game / Level / UX and player experience</li>
+          <li>Collaboration with artists & programmers to prototype and iterate on mechanics</li>
+          <li>Creation and editing of post-production cinematics</li>
+        </ul></div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-head"><span class="exp-title">Game / Level / Sound Designer & Programmer</span><span class="exp-date">Sep. 2020 – Jun. 2021</span></div>
+        <div class="exp-company">Turbo Light Rush (Steam) · Student Project</div>
+        <div class="exp-body"><ul>
+          <li>Full game design for Turbo Light Rush — game published and released on Steam</li>
+          <li>GDD, Wireframes, UX, Sound Design, Level Design</li>
+          <li>Blueprint programming & Unreal Engine integration</li>
+        </ul></div>
+      </div>
+      <p class="cv-section-title">Education</p>
+      <div class="exp-block">
+        <div class="exp-head"><span class="exp-title">RNCP Level 7 Certification</span><span class="exp-date">2021 – 2023</span></div>
+        <div class="exp-company">Multimedia Project Manager</div>
+        <div class="exp-body"><p>Game/Level Design, systemic mechanics, GDD, 3C Design, programming & gameplay prototyping.</p></div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-head"><span class="exp-title">Bachelor 3D Animation / Video Games</span><span class="exp-date">2018 – 2021</span></div>
+        <div class="exp-company">Ynov Bordeaux</div>
+        <div class="exp-body"><p>3D modeling, texturing, digital sculpting, rendering.</p></div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-head"><span class="exp-title">BTS IT Technician</span><span class="exp-date">2006 – 2008</span></div>
+        <div class="exp-company">CESI Alumni Bordeaux</div>
+        <div class="exp-body"><p>Software/hardware maintenance, network administration, project management.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center;display:flex">Contact</div>
+    <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.025em;margin-bottom:1.25rem">Let's talk?</h2>
+    <p>Available for game/level design projects, indie collaborations, and creative work. In French or English.</p>
+    <div class="contact-links">
+      <a href="mailto:f.naimon@gmail.com" class="btn-primary">f.naimon@gmail.com</a>
+      <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">FN<span>.</span></div>
+  <div>© 2025 Fabien Naimon — Game / Tech Designer</div>
+  <div><a href="mailto:f.naimon@gmail.com" style="color:var(--text-muted);text-decoration:none">f.naimon@gmail.com</a></div>
+</footer>
+
+</div><!-- end main-page -->
+
+
+<!-- ===== WHERE ARE YOU ===== -->
+<div class="project-page" id="project-way">
+<div class="project-page-inner">
+  <button class="pp-back" onclick="history.back()">← Back to projects</button>
+  <img class="pp-hero" src="https://static.wixstatic.com/media/ced783_2ecb92c67359406d941d90006aafae89~mv2.png/v1/fill/w_980,h_553,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_2ecb92c67359406d941d90006aafae89~mv2.png" alt="Where Are You?">
+  <h1>Where Are You?</h1>
+  <div class="pp-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Sound Design</span><span class="tag">Lead Project</span><span class="tag">Online Co-op</span><span class="tag">Steam</span></div>
+  <div class="pp-body">
+    <p><strong>Where Are You?</strong> is an online cooperative puzzle game in which two players must progress through test rooms set up by a superior intelligence, with the aim of testing human thinking ability.</p>
+    <h2>My Roles</h2>
+    <div class="role-grid">
+      <div class="role-item"><div class="role-label">Game Design</div><div class="role-val">Core mechanics around scale variation, prototyping, 3C balancing, testing & debugging.</div></div>
+      <div class="role-item"><div class="role-label">Level Design</div><div class="role-val">From blockout to final version — flow, rhythm, pacing, and full level construction.</div></div>
+      <div class="role-item"><div class="role-label">Sound Design</div><div class="role-val">Complete audio design in line with the cold, oppressive scientific atmosphere.</div></div>
+      <div class="role-item"><div class="role-label">Lead Project</div><div class="role-val">Team management, task allocation, tool selection, Notion documentation, ticket tracking.</div></div>
+    </div>
+    <h2>The Levels</h2>
+
+    <p>The game contains <strong>3 distinct levels</strong>, each built around a specific theme with multiple ways to reach the objective.</p>
+    <div class="pp-screenshots">
+      <img src="https://static.wixstatic.com/media/ced783_f159f5103d684b3aad848d3addb5f0c8~mv2.png/v1/fill/w_980,h_542,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_f159f5103d684b3aad848d3addb5f0c8~mv2.png" alt="Level 1 - Tutorial">
+      <img src="https://static.wixstatic.com/media/ced783_3c1e7feac19d4e2fb76977185ecd6f43~mv2.png/v1/fill/w_980,h_508,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_3c1e7feac19d4e2fb76977185ecd6f43~mv2.png" alt="Level 2 - The Cave">
+    </div>
+    <ul>
+      <li><strong>Level 1 — Tutorial:</strong> both players evolve together and gradually discover all the main mechanics.</li>
+      <li><strong>Level 2 — The Cave:</strong> mechanics confirmed, but this time the players evolve separately. Codes/combinations system introduced.</li>
+    </ul>
+    <div class="pp-screenshots full">
+      <img src="https://static.wixstatic.com/media/ced783_4c5155596289451f956d42ecbf52d168~mv2.png/v1/fill/w_980,h_508,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_4c5155596289451f956d42ecbf52d168~mv2.png" alt="Level 3 - The Labyrinths">
+    </div>
+    <ul>
+      <li><strong>Level 3 — The Labyrinths:</strong> platforming sequence, then navigation through two separate labyrinths. An update is planned.</li>
+    </ul>
+    <div class="pp-note"><strong>⚠ Required to play:</strong> two separate Steam accounts are needed to play with a friend.</div>
+    <div class="pp-links">
+      <a href="https://1drv.ms/u/s!AqwDBgHaQCQQ2j7y7Y9bWZ6zPvZE?e=S86JsS" class="btn-primary" target="_blank">Download the game</a>
+      <a href="https://1drv.ms/p/s!AqwDBgHaQCQQ2j92xnwTlinpLu_G?e=6BYs35" class="btn-secondary" target="_blank">Documentation (FR)</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== BOMBER BASH ===== -->
+<div class="project-page" id="project-bomber">
+<div class="project-page-inner">
+  <button class="pp-back" onclick="history.back()">← Back to projects</button>
+  <img class="pp-hero" src="https://static.wixstatic.com/media/ced783_556584c81bc44d81a5c2bff9a2b8497d~mv2.png/v1/fill/w_980,h_553,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_556584c81bc44d81a5c2bff9a2b8497d~mv2.png" alt="Bomber Bash">
+  <h1>Bomber Bash</h1>
+  <div class="pp-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Sound Design</span><span class="tag">48h Game Jam</span><span class="tag">Up to 4 players</span></div>
+  <div class="pp-body">
+    <p>Winner of the <strong>Ynov Game Jam 2022</strong> (theme: limited space) and the <strong>Jury's Favorite award at CNPLAY Gaming Show</strong>. Bomber Bash is a competitive multiplayer party game, where you have to destroy the terrain to make other players fall, and be the last one standing on the field to win the match.</p>
+    <h2>My Roles</h2>
+    <div class="role-grid">
+      <div class="role-item"><div class="role-label">Concept & GD</div><div class="role-val">Finding the concept, Game, Level and Sound design, creating documentation and tech structure.</div></div>
+      <div class="role-item"><div class="role-label">Direction</div><div class="role-val">Giving direction to the project and working with 7 team members in 48 hours.</div></div>
+      <div class="role-item"><div class="role-label">Level Design</div><div class="role-val">4 environments: Medieval Castle · Beach · Disco Club · Japan.</div></div>
+      <div class="role-item"><div class="role-label">Sound Design</div><div class="role-val">Full audio direction on the project.</div></div>
+    </div>
+    <h2>Gameplay Video</h2>
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/bByEoJ_mKJI?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <h2>Content produced in 48h</h2>
+    <p>Inspired by <em>Fall Guys</em> and <em>Bomberman</em>, up to 4 players, we managed to produce:</p>
+    <div class="pp-screenshots">
+      <img src="https://static.wixstatic.com/media/ced783_556584c81bc44d81a5c2bff9a2b8497d~mv2.png/v1/fill/w_914,h_744,al_c,q_90,enc_avif,quality_auto/ced783_556584c81bc44d81a5c2bff9a2b8497d~mv2.png" alt="Bomber Bash environments">
+      <img src="https://static.wixstatic.com/media/ced783_35d128f36bd9405ea797c3fb1bf9c74a~mv2.png/v1/fill/w_980,h_557,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_35d128f36bd9405ea797c3fb1bf9c74a~mv2.png" alt="Bomber Bash gameplay">
+    </div>
+    <ul>
+      <li>4 environments: <strong>Medieval Castle · Beach · Disco Club · Japan</strong></li>
+      <li>3 bomb types: <strong>Classic (radius 1) · Giga (radius 2) · Glue (radius 3)</strong></li>
+      <li>3 game modes: <strong>Classic · Bomb Hell · No Gravity</strong></li>
+    </ul>
+    <h2>Design Intent</h2>
+    <p>The jam theme was <strong>Limited Space</strong>. By choosing a destructible terrain, the game sticks perfectly to the theme: the more you play, the more space shrinks, the more pressure builds.</p>
+    <p>2D UI inside the game — Artist: <a href="https://www.artstation.com/diel" target="_blank" style="color:var(--accent)">Baptiste Diehl</a>. Thank you!</p>
+    <div class="pp-links">
+      <a href="https://1drv.ms/u/s!AqwDBgHaQCQQ2V76J0lVgyS8KYa7?e=9xRswJ" class="btn-primary" target="_blank">Download the game</a>
+      <a href="https://www.youtube.com/watch?v=bByEoJ_mKJI" class="btn-secondary" target="_blank">Gameplay video ↗</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== TURBO LIGHT RUSH ===== -->
+<div class="project-page" id="project-tlr">
+<div class="project-page-inner">
+  <button class="pp-back" onclick="history.back()">← Back to projects</button>
+  <img class="pp-hero" src="https://static.wixstatic.com/media/ced783_649e9974675d49aa98787bcf052a13b7~mv2.png/v1/fill/w_980,h_553,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_649e9974675d49aa98787bcf052a13b7~mv2.png" alt="Turbo Light Rush">
+  <h1>Turbo Light Rush</h1>
+  <div class="pp-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Sound Design</span><span class="tag">Blueprint</span><span class="tag">Steam</span><span class="tag">Android</span></div>
+  <div class="pp-body">
+    <p>Student project turned real game. Built from scratch with <strong>Unreal Engine 4</strong>, Turbo Light Rush is a Synthwave Run & Gun released on <strong>Steam and Google Play</strong>. 13 levels, 3 worlds, an original OST, a boss fight, an "Endless" mode, and two different endings.</p>
+    <p style="font-size:0.85rem;color:var(--text-muted)">Android: <a href="http://urlr.me/cnrxd" target="_blank" style="color:var(--accent)">urlr.me/cnrxd</a> &nbsp;·&nbsp; Steam: <a href="https://store.steampowered.com/app/2022510/Turbo_Light_Rush/" target="_blank" style="color:var(--accent)">store.steampowered.com</a></p>
+    <h2>Gameplay Video</h2>
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/B76C7Mj_yfQ?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <blockquote>"A Run and Gun on Android and Steam created on Unreal Engine? What could possibly go wrong?!"</blockquote>
+    <h2>My Roles</h2>
+    <div class="role-grid">
+      <div class="role-item"><div class="role-label">Game Design</div><div class="role-val">GDD, Foundation Doc, asset list, Flurby's (easter eggs), boss fight design.</div></div>
+      <div class="role-item"><div class="role-label">Level Design</div><div class="role-val">13 levels across 3 worlds, from tutorial to final boss, including the unique "Glitched" level.</div></div>
+      <div class="role-item"><div class="role-label">Sound Design</div><div class="role-val">Full OST composed in FL Studio. Special track created for the Steam release.</div></div>
+      <div class="role-item"><div class="role-label">Programming</div><div class="role-val">Blueprint, Android and Steam packaging, self-taught programming throughout.</div></div>
+    </div>
+    <h2>Creating the project</h2>
+    <p>We were three students to create the entire game:</p>
+    <ul>
+      <li><strong>Fabien NAIMON</strong> — Game/Level/Sound Design, programming, project management, Android packaging, workflow, and all technical and management aspects.</li>
+      <li><strong>Cyril ANGHELIDI</strong> — Level Design / Rigging, Q&A Test.</li>
+      <li><strong>Alex Lopez</strong> — 2D/3D/VFX Artist.</li>
+    </ul>
+    <p>The concept was built on three pillars: <strong>Fun · Synthwave · Speed</strong>. References included <em>Sonic Runners Adventures</em>, <em>Super Mario Run</em>, <em>Geometry Dash</em>, <em>Jetpack Joyride</em>, and more.</p>
+    <h2>World Structure</h2>
+    <div class="pp-screenshots full">
+      <img src="https://static.wixstatic.com/media/ced783_51d318131dd64815abccf06e2be79d62~mv2.png/v1/fill/w_980,h_495,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_51d318131dd64815abccf06e2be79d62~mv2.png" alt="Turbo Light Rush level design">
+    </div>
+    <ul>
+      <li><strong>World 1:</strong> easy and accessible. Tutorial introduces main mechanics — Dash & Jump, Fire & Jump, Fire & Dash.</li>
+      <li><strong>World 2:</strong> harder, same mechanics. Includes the "Glitched" level — all LD bricks are slightly glitched, tied to the game's lore.</li>
+      <li><strong>World 3:</strong> difficulty spikes drastically. The main villain's world. Boss Level at the end — 3 Core Reactors to hit during the run deal damage to the boss. Credits + bonus soundtrack unlock on completion.</li>
+    </ul>
+    <h2>Sound Design</h2>
+    <p>All songs and sounds in Turbo Light Rush were created in <strong>FL Studio</strong>. A special track was composed to replace the Level 7 song for the Steam release.</p>
+    <p>Six months of work later, the game was released on <strong>Google Play</strong>, then on <strong>Steam</strong> with the Boss Fight and new features added. We are really proud of our game — we made an entire game <strong>from scratch</strong>.</p>
+    <div class="pp-links">
+      <a href="https://store.steampowered.com/app/2022510/Turbo_Light_Rush/" class="btn-primary" target="_blank">View on Steam</a>
+      <a href="https://soundcloud.com/user-369823822/sets/turbo-light-rush-original-game-soundtrack" class="btn-secondary" target="_blank">OST on Soundcloud ↗</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== THE MONASTERY ===== -->
+<div class="project-page" id="project-monastery">
+<div class="project-page-inner">
+  <button class="pp-back" onclick="history.back()">← Back to projects</button>
+  <img class="pp-hero" src="https://static.wixstatic.com/media/ced783_e3ba42e8bf8341e89148904879c205f3~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_e3ba42e8bf8341e89148904879c205f3~mv2.png" alt="The Monastery">
+  <h1>Level Design — The Monastery</h1>
+  <div class="pp-tags"><span class="tag hl">Level Design</span><span class="tag">Spatial Narrative</span><span class="tag">Blueprint</span><span class="tag">UE5</span><span class="tag">Megascan</span></div>
+  <div class="pp-body">
+    <p>For this project, I set myself a goal: to design a large area divided into three interconnected sections, each with its own unique atmosphere, aiming to form a coherent whole where the environment and its narrative play a significant role.</p>
+    <p>The overall setting depicts a <strong>monastery isolated from the rest of the world</strong>, where a dark threat seems to have been contained until something went wrong. The player will need to understand what happened — and <strong>what is at stake</strong>.</p>
+    <h2>Artistic Direction</h2>
+    <p>The artistic direction is based on a ruined monastery, with a church occupying the central place. Religious icons, along with extensive environmental and textual storytelling, provide the player with the necessary clues to understand the events that transpired. These elements are not mandatory but greatly enhance comprehension, enabling the player to make a clear and informed choice when faced with the NPC dialogue.</p>
+    <h2>3 Interconnected Zones</h2>
+    <div class="pp-screenshots">
+      <img src="https://static.wixstatic.com/media/ced783_dc13121dfc934c4688262fbfefe01719~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_dc13121dfc934c4688262fbfefe01719~mv2.png" alt="Zone 1">
+      <img src="https://static.wixstatic.com/media/ced783_e3ba42e8bf8341e89148904879c205f3~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_e3ba42e8bf8341e89148904879c205f3~mv2.png" alt="Zone 1b">
+    </div>
+    <ul>
+      <li><strong>Zone 1 — Starting area / spawn point:</strong> small outer courtyard, dining hall, and main bridge. This area already contains the main gameplay/scripting elements introduced throughout the level.</li>
+    </ul>
+    <div class="pp-screenshots">
+      <img src="https://static.wixstatic.com/media/ced783_45a195b527924438908aab3c8c550711~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_45a195b527924438908aab3c8c550711~mv2.png" alt="Zone 2">
+      <img src="https://static.wixstatic.com/media/ced783_6ef05104c9bf49a49f5a35c7e6d4fb53~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_6ef05104c9bf49a49f5a35c7e6d4fb53~mv2.png" alt="Zone 2b">
+    </div>
+    <ul>
+      <li><strong>Zone 2 — Main building:</strong> a long corridor adorned with paintings telling the story of the warrior monks, a cell containing a strange being. Two secret passages connect to the church roof and the waterfall area.</li>
+    </ul>
+    <div class="pp-screenshots">
+      <img src="https://static.wixstatic.com/media/ced783_0a70b956eac3455bbd739cbed8c663cb~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_0a70b956eac3455bbd739cbed8c663cb~mv2.png" alt="Zone 3">
+      <img src="https://static.wixstatic.com/media/ced783_82953c8d9962417784099e71791f0965~mv2.png/v1/fill/w_980,h_459,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_82953c8d9962417784099e71791f0965~mv2.png" alt="Zone 3b">
+    </div>
+    <ul>
+      <li><strong>Zone 3 — The church and balcony:</strong> additional descriptive elements, a door leading to a tomb carved into the rock containing the level's final interactive element.</li>
+    </ul>
+    <h2>Level Design</h2>
+    <ul>
+      <li><strong>Platforming and orientation:</strong> the level is highly vertical. No fall damage — the only way to die is to exit the level boundaries (respawn at start, progress kept). Good orientation and observation skills are required.</li>
+      <li><strong>Strong verticality and narrative:</strong> secret passages allow moving from the water area to the church ceiling. The entire level can be traversed from the lowest to the highest point.</li>
+      <li>Numerous narrative elements throughout: paintings, bodies, objects, statues. Environmental and textual storytelling inform the player about what happened. The player can collect objects and exit without reading, but won't understand the NPC dialogue or why a bad ending is triggered.</li>
+    </ul>
+    <p>Player guidance is achieved through <strong>light direction/intensity</strong> and <strong>points of interest</strong> — stained glass windows, statues, viewpoints. From the main bridge, a waterfall and nearby interactive elements are visible, drawing the player to find one of the secret passages.</p>
+    <h2>Game Design</h2>
+    <ul>
+      <li><strong>Two different endings:</strong> a good and a bad ending. The elements needed to understand both are scattered throughout the level — the player chooses.</li>
+      <li><strong>8 relics to collect</strong> and explore: the first one signals there are 8 total (1/8 collected). Exploration reveals all hiding spots.</li>
+    </ul>
+    <p>Gameplay loop: <strong>Objective</strong> — find 8 relics and exit with the good ending. <strong>Challenge 1</strong> — find all relics to unlock the exit door. <strong>Challenge 2</strong> — be tested by the NPC dialogue, demonstrating determination or yielding to ease. <strong>Reward</strong> — exit with the good ending screen.</p>
+    <h2>Blueprint — Scripted Systems</h2>
+    <div class="pp-screenshots">
+      <img src="https://static.wixstatic.com/media/ced783_88f0fcc90c584f0f96a38bec4e1fdc09~mv2.png/v1/fill/w_980,h_382,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_88f0fcc90c584f0f96a38bec4e1fdc09~mv2.png" alt="Blueprint Widget">
+      <img src="https://static.wixstatic.com/media/ced783_11789f296d55488592c05c3d9e1681ae~mv2.png/v1/fill/w_980,h_171,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_11789f296d55488592c05c3d9e1681ae~mv2.png" alt="Blueprint doors">
+    </div>
+    <ul>
+      <li><strong>Master Widget:</strong> interactive contextual widget displayed each time the player interacts with an element, blocking controls until "OK" is confirmed.</li>
+      <li><strong>NPC Dialogue System:</strong> dialogue box that evolves and offers a choice if the player possesses a specific item.</li>
+      <li><strong>Elevators, doors, and keys:</strong> elevator height adjustable directly in the editor. Locked doors require keys scattered through the level.</li>
+      <li><strong>Secret passages:</strong> opened remotely via a "button", with a camera switch showing which door has opened.</li>
+    </ul>
+    <div class="pp-screenshots full">
+      <img src="https://static.wixstatic.com/media/ced783_e16fb68e46ce43b295b5eb10dc812642~mv2.png/v1/fill/w_980,h_578,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_e16fb68e46ce43b295b5eb10dc812642~mv2.png" alt="Blueprint Interaction Key">
+    </div>
+    <ul>
+      <li><strong>Interaction key (E):</strong> depending on what the line trace hits, different information is displayed. Cascading verification process — additional elements can be added easily.</li>
+    </ul>
+    <p>Assets from <strong>Quixel Megascan</strong> library on Unreal Engine 5.</p>
+    <div class="pp-links">
+      <a href="https://1drv.ms/f/s!AqwDBgHaQCQQhbVl8QzWJMnmymyEtQ?e=pe21qk" class="btn-primary" target="_blank">Download the game</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PORTAL 2 ===== -->
+<div class="project-page" id="project-portal">
+<div class="project-page-inner">
+  <button class="pp-back" onclick="history.back()">← Back to projects</button>
+  <img class="pp-hero" src="https://static.wixstatic.com/media/ced783_041750d790fd4560a8bf9fc5ead4264a~mv2.png/v1/fill/w_980,h_551,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_041750d790fd4560a8bf9fc5ead4264a~mv2.png" alt="Portal 2">
+  <h1>Level Design — Portal 2</h1>
+  <div class="pp-tags"><span class="tag hl">Level Design</span><span class="tag">Puzzle Design</span><span class="tag">Portal 2 Editor</span><span class="tag">Difficulty 2/4</span></div>
+  <div class="pp-body">
+    <p>Custom puzzle level created using the <strong>Portal 2</strong> game editor. The main theme is <strong>Laser Beams</strong>. The aim is to use a laser beam to ricochet off different points to trigger the appearance of a reflective cube, which is then used to open the level's exit door.</p>
+    <h2>Gameplay Video</h2>
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/7ysPE9Ij3Vk?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <h2>Design Intent</h2>
+    <p><strong>Verticality</strong> is a component I try to implement in all the levels I build. In this puzzle, the "understanding twist" comes when the player spots the laser reception point located high up — with their back to it as they enter — and understands they have to use a portal above the exit door.</p>
+    <h2>Difficulty & Iterations</h2>
+    <p>Difficulty <strong>2 out of 4</strong> on a predetermined scale. Accessible, can be completed relatively quickly whether or not the player is familiar with puzzle games. Testing phases took place over several iterations with multiple testers to avoid construction bias.</p>
+    <p>The full design document is available for download below (in French).</p>
+    <div class="pp-links">
+      <a href="https://ced783e5-5107-4dcf-ad51-5dc1216cb2d5.usrfiles.com/ugd/ced783_827bb2c446b54a288cf89ab0bd35308f.pdf" class="btn-secondary" target="_blank">Level Design Document (FR)</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== ENVIRONMENT DESIGN ===== -->
+<div class="project-page" id="project-enviro">
+<div class="project-page-inner">
+  <button class="pp-back" onclick="history.back()">← Back to projects</button>
+  <img class="pp-hero" src="https://static.wixstatic.com/media/ced783_d54c2db9bbdc4fdab3847f6c1af518ff~mv2.png/v1/fill/w_980,h_530,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_d54c2db9bbdc4fdab3847f6c1af518ff~mv2.png" alt="Desertic Planet">
+  <h1>Enviro. Design — Desertic Planet</h1>
+  <div class="pp-tags"><span class="tag hl">Environment Design</span><span class="tag">World Building</span><span class="tag">UE5</span><span class="tag">Megascan</span><span class="tag">World Creator</span></div>
+  <div class="pp-body">
+    <p>To create these images of a desert planet I used <strong>Unreal Engine 5</strong>, as well as the new tools it offers to designers, including the <strong>Quixel Bridge</strong>, which allows access to the entire MegaScans library. I was able to add textures and assets to give life to this environment.</p>
+    <p>For the generation of the <strong>Height Map</strong> I used the <strong>World Creator</strong> tool, and then generated the landscape from the exported height map file.</p>
+    <p>I also used the <strong>PanoraMake plug-in</strong>, created by <a href="https://www.artstation.com/sylvainlebeau" target="_blank" style="color:var(--accent)">Sylvain Lebeau</a>, which allows creating extremely detailed landscapes through a system of masks applied on the landscape — bringing the necessary variety to the terrain.</p>
+    <div class="pp-screenshots full">
+      <img src="https://static.wixstatic.com/media/ced783_d54c2db9bbdc4fdab3847f6c1af518ff~mv2.png/v1/fill/w_980,h_530,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_d54c2db9bbdc4fdab3847f6c1af518ff~mv2.png" alt="Desertic Planet view 1">
+    </div>
+    <div class="pp-screenshots full">
+      <img src="https://static.wixstatic.com/media/ced783_a907697bf6294cdf85901612dd6b7652~mv2.png/v1/fill/w_980,h_530,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_a907697bf6294cdf85901612dd6b7652~mv2.png" alt="Desertic Planet view 2">
+    </div>
+    <div class="pp-screenshots full">
+      <img src="https://static.wixstatic.com/media/ced783_26f48d41176d4c63b25cccdb192fd5bd~mv2.png/v1/fill/w_980,h_530,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ced783_26f48d41176d4c63b25cccdb192fd5bd~mv2.png" alt="Desertic Planet view 3">
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== CTHULHU: THE COSMIC ABYSS ===== -->
+<div class="project-page" id="project-cthulhu">
+<div class="project-page-inner">
+  <button class="pp-back" onclick="history.back()">← Back to projects</button>
+  <img class="pp-hero" src="cthulhu_main.webp" alt="Cthulhu The Cosmic Abyss" style="aspect-ratio:16/9;object-position:center top">
+  <h1>Cthulhu: The Cosmic Abyss</h1>
+  <div class="pp-tags">
+    <span class="tag pro">QA Analyst</span>
+    <span class="tag pro">Quest Design</span>
+    <span class="tag pro">Cinematic Design</span>
+    <span class="tag pro">Big Bad Wolf Studio</span>
+    <span class="tag pro">UE5</span>
+    <span class="tag pro">Dec. 2023 – Present</span>
+  </div>
+
+  <div class="pp-body">
+
+    <h2>Game Pitch</h2>
+    <p>The year is 2053. Around the world, the occult threat is becoming less and less discreet, and numerous strange events beyond human understanding are being reported. As resources on the surface of the Earth grow increasingly scarce, powerful corporations turn to the unexplored depths of the oceans, unaware of the ancient horror they are about to awaken.</p>
+    <p>In this tense thriller inspired by the universe of Lovecraft, you play as <strong>Noah</strong> and investigate the mysterious disappearance of miners in the depths of the Pacific Ocean. With the help of your AI companion, <strong>Key</strong>, explore the vast labyrinthine prison of R'lyeh — an ancient sunken city of cyclopean dimensions — and attempt to resist the corruption of the mind caused by Cthulhu's influence. At its heart lies a secret that could shatter your understanding of reality.</p>
+
+    <div class="pp-screenshots">
+      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251351680-JZ2QAHBP41MRC63TQOPB/Screenshot_1.jpg" alt="Cthulhu screenshot 1">
+      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251376927-RFJ8ROZOVTY8FCAVEORX/Screenshot_2.jpg" alt="Cthulhu screenshot 2">
+      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251377016-TYG4N3AX6AMQ1XA1H2C5/Screenshot_3.jpg" alt="Cthulhu screenshot 3">
+      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251379301-VHI594L6YVRAYV6KA6AW/Screenshot_4.jpg" alt="Cthulhu screenshot 4">
+    </div>
+
+    <h2>My Work at Big Bad Wolf Studio</h2>
+
+    <div class="role-grid">
+      <div class="role-item">
+        <div class="role-label">QA Analyst</div>
+        <div class="role-val">Static review of Game Design and Narrative documentation. Gameplay review of quests and entire levels for UX optimization.</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">QA Tester</div>
+        <div class="role-val">Identifying and reproducing bugs across gameplay systems, UI, and environmental interactions. Structured documentation with prioritization and player impact assessment.</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">Quest Design</div>
+        <div class="role-val">Static review of Quest Design documentation, identifying flaws and questioning narrative coherence and quest context.</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">Cinematic Design</div>
+        <div class="role-val">Post-production editing of in-engine cinematics. Delivered 3 proposals to the direction — the selected version ("Red Eyes") is in the final game.</div>
+      </div>
+    </div>
+
+    <h2>Technical Versatility & Creative Vision</h2>
+    <p>My work on Cthulhu: The Cosmic Abyss extended well beyond standard QA. I operated in a <strong>cross-disciplinary role</strong> combining quality analysis, global design participation, and cinematic design — contributing at several levels of the production pipeline, from systemic game analysis to environment art pipelines, while improving the stability and readability of the overall player experience.</p>
+
+    <h2>Quality Assurance & Systemic Analysis</h2>
+    <p>As a QA Analyst, my work extended beyond simple bug detection. The main objective was to ensure the <strong>functional and structural coherence</strong> of the game within a production environment using Unreal Engine 5. This role required a technical understanding of Blueprint logic, level organization, system interactions, and performance constraints.</p>
+    <p>The QA approach I followed relied on <strong>systemic analysis</strong>: understanding how individual systems interact with each other in order to anticipate side effects and improve the overall robustness of the project. Analysis of emergent behaviors in order to identify deeper design or implementation problems. Communication with development teams to help accelerate issue resolution.</p>
+
+    <h2>Contribution to Global Game Design</h2>
+    <p>Beyond QA, I also contributed to the overall game design, participating in discussions about the structure of certain mechanics and the consistency of the player experience. This contribution focused on gameplay analysis and readability, balancing certain interactions, improving the clarity of gameplay situations, and maintaining coherence between narrative, environment, and mechanics.</p>
+    <p>In many cases, the process involved <strong>transforming an observed problem into a concrete design proposal</strong>, while taking into account production constraints and existing systems.</p>
+
+    <h2>Cinematic Design — "Red Eyes"</h2>
+    <p>I was tasked with taking a sequence of images from Unreal Engine and working on them from a post-production standpoint, upgrading and improving the quality of the sequence. I cut and edited the cinematic, delivering <strong>three different versions</strong> for the direction to review. The selected version, entitled "Red Eyes", is in the final game.</p>
+    <p>You can watch all 3 submitted proposals below:</p>
+
+    <div class="yt-wrapper" style="margin-bottom:0.75rem"><iframe src="https://www.youtube-nocookie.com/embed/e1ynNIXKx4I?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1.5rem;text-align:center">Selected version — "Red Eyes" (in the final game)</p>
+
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/TMiAbnf3TOg?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1.5rem;text-align:center">All 3 proposals submitted to the direction</div>
+
+    <div class="pp-screenshots">
+      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251380208-0RWW2QYOM8MZA4Q2RCYU/Screenshot_5.jpg" alt="Cthulhu screenshot 5">
+      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251379301-VHI594L6YVRAYV6KA6AW/Screenshot_4.jpg" alt="Cthulhu screenshot 4">
+    </div>
+
+    <h2>Quest Design — The Great Library of Abdul Al-Hazred</h2>
+    <p>As a demonstration of original quest design work — coherent with the game's lore and slotting in directly after Q5 as Q6 / end of game — I designed <strong>The Great Sunken Library of Abdul Al-Hazred</strong>.</p>
+
+    <blockquote>"Abdul Al-Hazred learned, read, and wrote. You who enter will never leave."</blockquote>
+
+    <p>Noah has arrived in the Great Library of the Mad Arab, Abdul Al-Hazred, who once managed to imprison the Great Old One using rituals compiled in the Necronomicon. Noah realizes that someone has already done all of this before him — centuries ago. Was all of this only meant to delay the inevitable? To postpone the Great Awakening?</p>
+
+    <h2>Concept Art — AI Generated</h2>
+    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem">Concept images generated for the quest design document (AI generated, for visualization purposes only)</p>
+    <div class="pp-screenshots full">
+      <img src="concept_vestibule.jpg" alt="Zone 0 — Vestibule de la Grande Bibliothèque">
+    </div>
+    <div class="pp-screenshots">
+      <img src="concept_archives_chair_1.jpg" alt="Zone 1 — Les Archives de la Chair">
+      <img src="concept_archives_chair_2.jpg" alt="Zone 1 — Les Archives de la Chair (vue 2)">
+    </div>
+    <div class="pp-screenshots">
+      <img src="concept_archives_chair_3.jpg" alt="Zone 1 — Les Archives de la Chair (vue 3)">
+      <img src="concept_porte_dagon.jpg" alt="Zone 2 — La Porte de Dagon">
+    </div>
+
+    <h2>Objectives</h2>
+    <ul>
+      <li><strong>General Objective</strong> (displayed when Noah passes through the rock fissure): <em>"Search the Great Library."</em></li>
+      <li><strong>Objective 2</strong> (displayed when the player finds the first page of the Necronomicon): <em>"Perform the confinement ritual."</em></li>
+      <li><strong>Objective 3</strong> (displayed when the player obtains a complete symbol): <em>"Investigate the second ritual."</em></li>
+    </ul>
+
+    <h2>Design Intentions</h2>
+    <p>The design intention is to take Noah even deeper into the citadel and make the player realize there is an additional underground level — another layer beneath the citadel — before reaching the Door of Dagon. The emphasis is on descending and navigating a <strong>labyrinthine level</strong> in which the player must go through all the knowledge compiled by the mad scholar.</p>
+    <p>The player will be lost within <strong>gigantic cyclopean, non-Euclidean archives</strong> whose shelves change as the player progresses. A corridor of shelves may hide valuable information, but when Noah turns back, there will be nothing left but a bottomless pit drowned in mist. The labyrinth model from Q3 is adopted to teleport the player into different rooms containing clues.</p>
+    <p>Between the Archives of the Flesh and the Door of Dagon lies a large, empty, dark corridor. This serves as a pretext for a <strong>concluding dialogue between Noah and Key</strong> — echoing the whispers heard in Q4, further blurring the boundary between dream and reality. This corridor follows the same concept as the ending hallway in Silent Hill 2, where James confronts his own trauma.</p>
+
+    <h2>Zone Structure</h2>
+    <ul>
+      <li><strong>Zone 0 — Vestibule:</strong> Enormous statue of Abdul Al-Hazred, hands extended downward. Doors sealed around the room. 3 out of 4 Eureka path pieces are hidden here. First page of the Necronomicon found at the base of the statue — guiding the player from the very start.</li>
+      <li><strong>Zone 1 — Archives of the Flesh:</strong> Texts carved into bones, parchments of skin, jars preserving organs engraved with scalpel writing. Forbidden knowledge about the Great Old Ones. Labyrinthine, changes according to the player's exploration. High verticality, moving staircases. Second Necronomicon page written on human skin.</li>
+      <li><strong>Final Zone — The Door of Dagon:</strong> Monumental portal covered in moving glyphs. Corruption passes through the door. The Watcher's Chair sits before it, inviting the player to sit and make the final decision: open the door, or seal it forever. A pedestal receives either the Star of Shamash or the Necronomicon.</li>
+    </ul>
+
+    <h2>Dual Path System</h2>
+    <p><strong>Path Critique — The Shadow of the Necronomicon:</strong> 3 real Necronomicon pages hidden throughout the level. Each reading increases the player's corruption level slightly. The player can insert pages of their choice into the book — which pages determine which ending triggers. This path flatters the player's ego and puts them in a false sense of confidence.</p>
+    <p><strong>Path Eureka — The Ancient Light:</strong> The player finds 5 golden symbols to position on the Star of Shamash. Hidden from the player, who must deduce on their own that another, more humble path exists — indicated covertly by the Yiths. This path accepts that humanity is not exceptional, and that its only tool is to delay the cosmic reckoning.</p>
+
+    <h2>Multiple Endings</h2>
+    <p>The ending depends on the combination of: the ritual chosen (Dark Ritual via Necronomicon vs. Light Ritual via the Star of Shamash), the number of genuine pages inserted, and the player's corruption level when they sit in the Watcher's Chair. This system produces <strong>multiple distinct endings</strong> — from the good ending to the Ultimate Bad Ending where Noah, consumed by Abdul's spirit, kills Elsa and opens the door to Cthulhu.</p>
+
+    <h2>Unreal Engine Expertise</h2>
+    <p>Through this project, I developed a strong understanding of Unreal Engine workflows: Blueprint logic and gameplay system organization, level management and environmental interactions, integration of cinematic and narrative systems, debugging issues related to system interactions, and understanding technical constraints in real-time projects.</p>
+
+    <h2>Video Editing & Post-Production</h2>
+    <p>Alongside the project work, I applied solid video editing and post-production skills: narrative editing and pacing, visual composition and graphic treatment, audio synchronization and sound design, color grading and image processing, and optimization of final renders for distribution.</p>
+
+    <div class="pp-note">
+      <strong>Quest Design Document:</strong> The full Notion export of the quest design document for The Great Library of Abdul Al-Hazred is available for download below. Visualization is not optimized but all data is present.
+    </div>
+    <div style="margin-bottom:2rem">
+      <a href="La_Grande_Bibliotheque_Abdul_Al-Hazred.pdf" download class="btn-primary">Download Quest Design Document (PDF) ↓</a>
+    </div>
+
+    <div class="pp-links">
+      <a href="https://store.steampowered.com/app/2760560/Cthulhu_The_Cosmic_Abyss/" target="_blank" class="btn-primary">View on Steam ↗</a>
+      <a href="https://www.bigbadwolf-studio.com/the-cosmic-abyss" target="_blank" class="btn-secondary">Big Bad Wolf Studio ↗</a>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<script>
+var currentProject=null;
+
+function navTo(id){
+  showMain();
+  setTimeout(function(){
+    var el=document.getElementById(id);
+    if(el) window.scrollTo({top:el.offsetTop-75,behavior:'smooth'});
+  },50);
+}
+
+function openProject(id){
+  document.getElementById('main-page').style.display='none';
+  document.querySelectorAll('.project-page').forEach(function(p){p.classList.remove('open')});
+  var p=document.getElementById('project-'+id);
+  if(p){p.classList.add('open');window.scrollTo(0,0)}
+  currentProject=id;
+  history.pushState({project:id},'',window.location.pathname+'#'+id);
+}
+
+function closeProject(){
+  var scrollTarget=document.getElementById('projects').offsetTop-75;
+  document.querySelectorAll('.project-page').forEach(function(p){p.classList.remove('open')});
+  document.getElementById('main-page').style.display='block';
+  currentProject=null;
+  setTimeout(function(){window.scrollTo({top:scrollTarget,behavior:'smooth'})},50);
+}
+
+function showMain(){
+  document.querySelectorAll('.project-page').forEach(function(p){p.classList.remove('open')});
+  document.getElementById('main-page').style.display='block';
+  currentProject=null;
+}
+
+window.addEventListener('popstate',function(e){
+  if(e.state&&e.state.project){
+    document.getElementById('main-page').style.display='none';
+    document.querySelectorAll('.project-page').forEach(function(p){p.classList.remove('open')});
+    var p=document.getElementById('project-'+e.state.project);
+    if(p){p.classList.add('open');window.scrollTo(0,0)}
+    currentProject=e.state.project;
+  } else {
+    closeProject();
+  }
+});
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&currentProject) history.back();
+});
+</script>
+</body>
+</html>
