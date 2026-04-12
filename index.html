@@ -6,7 +6,7 @@
 <title>Fabien Naimon — Game / Tech Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -16,7 +16,7 @@
   --accent:#c8a96e;--accent-dim:rgba(200,169,110,0.10);--accent-dim2:rgba(200,169,110,0.05);--accent-border:rgba(200,169,110,0.25);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--text-primary);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(200,169,110,0.25);border-radius:3px}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(17,18,20,0.90);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
@@ -33,7 +33,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero::before{content:'';position:absolute;top:15%;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(200,169,110,0.07) 0%,transparent 65%);pointer-events:none}
 .hero-eyebrow{font-size:0.73rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;justify-content:center;gap:0.75rem}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:32px;height:1px;background:var(--accent);opacity:0.6}
-.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.5rem,9vw,7.5rem);line-height:0.92;letter-spacing:-0.04em;max-width:900px;margin-bottom:1.75rem}
+.hero h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(3.5rem,9vw,7.5rem);line-height:0.92;letter-spacing:-0.04em;max-width:900px;margin-bottom:1.75rem}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero-sub{font-size:1rem;color:var(--text-secondary);max-width:460px;font-weight:300;margin-bottom:0.75rem;line-height:1.75}
 .hero-welcome{font-size:1rem;color:var(--text-secondary);max-width:480px;font-weight:300;margin-bottom:2.5rem;line-height:1.8;font-style:italic;opacity:0.8}
@@ -163,7 +163,18 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
   .pp-screenshots{grid-template-columns:1fr}
   .skills-block{grid-template-columns:1fr}
 }
-@media(max-width:580px){.cols-3,.cols-2{grid-template-columns:1fr}}
+@media(max-width:640px){
+  .cols-3,.cols-2{grid-template-columns:1fr}
+  nav{padding:0.9rem 1.25rem}
+  .nav-links{gap:0.75rem}
+  .nav-pill{padding:0.35rem 0.75rem;font-size:0.72rem !important}
+  .nav-links a{font-size:0.72rem;letter-spacing:0.04em}
+}
+@media(max-width:480px){
+  .nav-pill.linkedin span{display:none}
+  .nav-links li:nth-child(1),.nav-links li:nth-child(2),.nav-links li:nth-child(3){display:none}
+  .nav-pill{padding:0.4rem 0.9rem}
+}
 </style>
 </head>
 <body>
@@ -214,7 +225,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
         <div class="project-card-inner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem">
           <div>
             <div class="project-tags">
-              <span class="tag pro">QA Analyst</span><span class="tag pro">Quest Design</span><span class="tag pro">Cinematic Design</span><span class="tag pro">Big Bad Wolf Studio</span><span class="tag pro">Dec. 2023 – Present</span>
+              <span class="tag pro">QA Analyst</span><span class="tag pro">Quest Design</span><span class="tag pro">Post-production video editing</span><span class="tag pro">Big Bad Wolf Studio</span><span class="tag pro">Dec. 2023 – Present</span>
             </div>
             <h3>Cthulhu: The Cosmic Abyss</h3>
             <p class="project-desc">QA Analyst & cross-disciplinary contributor at Big Bad Wolf Studio — PC, Xbox Series X, PS5. QA, game design feedback, quest design, and cinematic post-production.</p>
@@ -695,7 +706,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
   <div class="pp-tags">
     <span class="tag pro">QA Analyst</span>
     <span class="tag pro">Quest Design</span>
-    <span class="tag pro">Cinematic Design</span>
+    <span class="tag pro">Post-production video editing</span>
     <span class="tag pro">Big Bad Wolf Studio</span>
     <span class="tag pro">UE5</span>
     <span class="tag pro">Dec. 2023 – Present</span>
@@ -730,7 +741,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
         <div class="role-val">Static review of Quest Design documentation, identifying flaws and questioning narrative coherence and quest context.</div>
       </div>
       <div class="role-item">
-        <div class="role-label">Cinematic Design</div>
+        <div class="role-label">Post-production video editing</div>
         <div class="role-val">Post-production editing of in-engine cinematics. Delivered 3 proposals to the direction — the selected version ("Red Eyes") is in the final game.</div>
       </div>
     </div>
@@ -746,7 +757,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>Beyond QA, I also contributed to the overall game design, participating in discussions about the structure of certain mechanics and the consistency of the player experience. This contribution focused on gameplay analysis and readability, balancing certain interactions, improving the clarity of gameplay situations, and maintaining coherence between narrative, environment, and mechanics.</p>
     <p>In many cases, the process involved <strong>transforming an observed problem into a concrete design proposal</strong>, while taking into account production constraints and existing systems.</p>
 
-    <h2>Cinematic Design — "Red Eyes"</h2>
+    <h2>Post-production video editing — "Red Eyes"</h2>
     <p>I was tasked with taking a sequence of images from Unreal Engine and working on them from a post-production standpoint, upgrading and improving the quality of the sequence. I cut and edited the cinematic, delivering <strong>three different versions</strong> for the direction to review. The selected version, entitled "Red Eyes", is in the final game.</p>
     <p>You can watch all 3 submitted proposals below:</p>
 
@@ -850,7 +861,14 @@ function openProject(id){
   history.pushState({project:id},'',window.location.pathname+'#'+id);
 }
 
+function stopVideos(){
+  document.querySelectorAll('.project-page iframe').forEach(function(iframe){
+    iframe.src=iframe.src;
+  });
+}
+
 function closeProject(){
+  stopVideos();
   var scrollTarget=document.getElementById('projects').offsetTop-75;
   document.querySelectorAll('.project-page').forEach(function(p){p.classList.remove('open')});
   document.getElementById('main-page').style.display='block';
@@ -859,6 +877,7 @@ function closeProject(){
 }
 
 function showMain(){
+  stopVideos();
   document.querySelectorAll('.project-page').forEach(function(p){p.classList.remove('open')});
   document.getElementById('main-page').style.display='block';
   currentProject=null;
@@ -872,6 +891,7 @@ window.addEventListener('popstate',function(e){
     if(p){p.classList.add('open');window.scrollTo(0,0)}
     currentProject=e.state.project;
   } else {
+    stopVideos();
     closeProject();
   }
 });
