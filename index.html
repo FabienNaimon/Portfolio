@@ -18,8 +18,8 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text-primary);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(200,169,110,0.25);border-radius:3px}
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(17,18,20,0.90);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+/* NAV - always on top including project pages */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(17,18,20,0.90);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;color:var(--text-primary);text-decoration:none}
 .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
@@ -48,13 +48,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 section{padding:7rem 3rem}
 .section-label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem}
 .section-header{margin-bottom:3.5rem}
-.section-header h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.75rem,3.5vw,2.75rem);letter-spacing:-0.025em;line-height:1.1}
+.section-header h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.75rem,3.5vw,2.75rem);letter-spacing:-0.025em;line-height:1.1}
 .section-header p{margin-top:0.65rem;color:var(--text-secondary);font-size:0.9rem;font-weight:300;max-width:480px}
 /* CATEGORY */
 .cat-block{margin-bottom:4.5rem}
 .cat-block:last-child{margin-bottom:0}
 .cat-title{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-.cat-title h3{font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;color:var(--text-secondary);text-transform:uppercase;white-space:nowrap}
+.cat-title h3{font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;color:var(--text-secondary);text-transform:uppercase;white-space:nowrap}
 .cat-line{flex:1;height:1px;background:var(--border)}
 .cat-count{font-size:0.68rem;color:var(--text-muted);letter-spacing:0.1em;white-space:nowrap}
 .sub-label{font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.85rem;margin-top:2rem}
@@ -75,7 +75,7 @@ section{padding:7rem 3rem}
 .tag{font-size:0.65rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:999px;background:rgba(255,255,255,0.04);color:var(--text-secondary);border:1px solid var(--border)}
 .tag.hl{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
 .tag.pro{background:rgba(100,120,255,0.08);border-color:rgba(100,120,255,0.2);color:#a0a8ff}
-.project-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;margin-bottom:0.45rem;line-height:1.25}
+.project-card h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;margin-bottom:0.45rem;line-height:1.25}
 .project-desc{font-size:0.855rem;color:var(--text-secondary);font-weight:300;line-height:1.6}
 .project-arrow{position:absolute;top:1.4rem;right:1.4rem;width:28px;height:28px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.75rem;transition:border-color 0.2s,color 0.2s,background 0.2s}
 .project-card:hover:not(.locked) .project-arrow{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
@@ -100,7 +100,7 @@ section{padding:7rem 3rem}
 .exp-block{margin-bottom:2.25rem;padding-bottom:2.25rem;border-bottom:1px solid var(--border)}
 .exp-block:last-child{border-bottom:none;margin-bottom:0}
 .exp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.25rem;gap:1rem}
-.exp-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.975rem;letter-spacing:-0.01em}
+.exp-title{font-family:'Outfit',sans-serif;font-weight:700;font-size:0.975rem;letter-spacing:-0.01em}
 .exp-date{font-size:0.77rem;color:var(--text-muted);font-weight:300;white-space:nowrap}
 .exp-company{font-size:0.83rem;color:var(--accent);margin-bottom:0.7rem;font-weight:400}
 .exp-body{font-size:0.855rem;color:var(--text-secondary);font-weight:300;line-height:1.7}
@@ -116,6 +116,26 @@ section{padding:7rem 3rem}
 footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:0.77rem}
 .footer-logo{font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--text-muted)}
 .footer-logo span{color:var(--accent);opacity:0.5}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border-radius:4px;cursor:default}
+.lightbox-close{position:fixed;top:1.25rem;right:1.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#fff;width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.lightbox-close:hover{background:rgba(255,255,255,0.18)}
+.pp-screenshots img,.pp-screenshots.full img{cursor:zoom-in;transition:filter 0.5s,transform 0.5s,opacity 0.2s}
+.pp-screenshots img:hover,.pp-screenshots.full img:hover{opacity:0.88}
+/* CONTACT FORM */
+.contact-form{display:flex;flex-direction:column;gap:0.85rem;margin-top:2rem;text-align:left;width:100%}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+.contact-form input,.contact-form textarea{width:100%;background:var(--bg-card);border:1px solid var(--border-mid);border-radius:8px;padding:0.75rem 1rem;color:var(--text-primary);font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:300;outline:none;transition:border-color 0.2s;resize:none}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-muted)}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
+.contact-form textarea{min-height:140px}
+.form-submit{align-self:center;margin-top:0.5rem}
+.form-msg{text-align:center;font-size:0.875rem;padding:0.6rem 1rem;border-radius:8px;display:none}
+.form-msg.success{background:rgba(100,200,100,0.1);border:1px solid rgba(100,200,100,0.3);color:#8ecf8e}
+.form-msg.error{background:rgba(220,80,80,0.1);border:1px solid rgba(220,80,80,0.3);color:#e08080}
+@media(max-width:580px){.form-row{grid-template-columns:1fr}}
 /* PROJECT FULLPAGE */
 .project-page{display:none;position:fixed;inset:0;z-index:200;overflow-y:auto;background:var(--bg)}
 .project-page.open{display:block}
@@ -124,8 +144,8 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 .pp-back:hover{color:var(--accent)}
 .pp-hero{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;margin-bottom:2.5rem}
 .pp-tags{display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:1.25rem}
-.project-page h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-0.03em;line-height:1.05;margin-bottom:1.75rem}
-.pp-body h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-0.01em;margin:2.25rem 0 1rem;color:var(--text-primary)}
+.project-page h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-0.03em;line-height:1.05;margin-bottom:1.75rem}
+.pp-body h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-0.01em;margin:2.25rem 0 1rem;color:var(--text-primary)}
 .pp-body p{color:var(--text-secondary);font-weight:300;line-height:1.8;margin-bottom:1rem;font-size:0.95rem}
 .pp-body strong{color:var(--text-primary);font-weight:500}
 .pp-body ul{margin:0.5rem 0 1rem;list-style:none;display:flex;flex-direction:column;gap:0.35rem}
@@ -143,7 +163,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 .pp-note{background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--accent);padding:0.85rem 1.2rem;border-radius:4px;margin:1.25rem 0;font-size:0.855rem;color:var(--text-secondary);font-weight:300}
 .pp-note strong{color:var(--accent);font-weight:500}
 .locked-page{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;gap:1rem}
-.locked-page h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.75rem;letter-spacing:-0.02em}
+.locked-page h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.75rem;letter-spacing:-0.02em}
 .locked-page p{color:var(--text-secondary);font-weight:300;max-width:380px;font-size:0.95rem;line-height:1.75}
 .yt-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;border:1px solid var(--border);margin:1.5rem 0}
 .yt-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
@@ -186,7 +206,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <li><a href="#about" onclick="navTo('about');return false;">About</a></li>
     <li><a href="#cv" onclick="navTo('cv');return false;">CV</a></li>
     <li><a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="nav-pill linkedin">LinkedIn ↗</a></li>
-    <li><a href="mailto:f.naimon@gmail.com" class="nav-pill">Contact</a></li>
+    <li><a href="#contact" onclick="navTo('contact');return false;" class="nav-pill">Contact</a></li>
   </ul>
 </nav>
 
@@ -349,7 +369,10 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <section id="cv" class="cv-section">
   <div class="section-label">Background</div>
   <div class="section-header">
-    <h2>Curriculum Vitae</h2>
+    <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
+      <h2>Curriculum Vitae</h2>
+      <a href="Fabien_Naimon_CV.pdf" download class="btn-secondary" style="font-size:0.8rem;padding:0.5rem 1.1rem">Download PDF ↓</a>
+    </div>
     <p>Game Designer · Tech Designer · Bordeaux</p>
   </div>
   <div class="cv-layout">
@@ -430,12 +453,22 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <section id="contact">
   <div class="contact-inner">
     <div class="section-label" style="justify-content:center;display:flex">Contact</div>
-    <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.025em;margin-bottom:1.25rem">Let's talk?</h2>
+    <h2 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.025em;margin-bottom:1.25rem">Let's talk?</h2>
     <p>Available for game/level design projects, indie collaborations, and creative work. In French or English.</p>
-    <div class="contact-links">
-      <a href="mailto:f.naimon@gmail.com" class="btn-primary">f.naimon@gmail.com</a>
+    <div class="contact-links" style="margin-bottom:2rem">
+      <a href="mailto:f.naimon@gmail.com" class="btn-secondary">f.naimon@gmail.com</a>
       <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
     </div>
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+      <div class="form-row">
+        <input type="text" name="firstname" placeholder="First name" required>
+        <input type="text" name="lastname" placeholder="Last name" required>
+      </div>
+      <input type="email" name="email" placeholder="Email address" required>
+      <textarea name="message" placeholder="Your message..." required></textarea>
+      <button type="submit" class="btn-primary form-submit">Send message ↗</button>
+      <div class="form-msg" id="form-msg"></div>
+    </form>
   </div>
 </section>
 
@@ -841,6 +874,12 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 </div>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
 <script>
 var currentProject=null;
 
@@ -897,8 +936,67 @@ window.addEventListener('popstate',function(e){
 });
 
 document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'&&currentProject) history.back();
+  if(e.key==='Escape'){
+    if(document.getElementById('lightbox').classList.contains('open')) closeLightbox();
+    else if(currentProject) history.back();
+  }
 });
+
+/* LIGHTBOX */
+function openLightbox(src,alt){
+  var lb=document.getElementById('lightbox');
+  var img=document.getElementById('lightbox-img');
+  img.src=src;
+  img.alt=alt||'';
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* Make all project page screenshots clickable for lightbox */
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.pp-screenshots img,.pp-screenshots.full img').forEach(function(img){
+    img.addEventListener('click',function(){
+      openLightbox(img.src,img.alt);
+    });
+  });
+});
+
+/* CONTACT FORM */
+var form=document.getElementById('contact-form');
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var msg=document.getElementById('form-msg');
+    var btn=form.querySelector('button[type="submit"]');
+    btn.textContent='Sending...';
+    btn.disabled=true;
+    fetch(form.action,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{Accept:'application/json'}
+    }).then(function(r){
+      if(r.ok){
+        msg.textContent='Message sent! I\'ll get back to you soon.';
+        msg.className='form-msg success';
+        msg.style.display='block';
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    }).catch(function(){
+      msg.textContent='Something went wrong. Try f.naimon@gmail.com directly.';
+      msg.className='form-msg error';
+      msg.style.display='block';
+    }).finally(function(){
+      btn.textContent='Send message ↗';
+      btn.disabled=false;
+    });
+  });
+}
 </script>
 </body>
 </html>
