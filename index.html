@@ -28,6 +28,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .nav-pill{padding:0.45rem 1.1rem;border:1px solid var(--border-mid);border-radius:999px;color:var(--text-primary) !important;transition:border-color 0.2s,background 0.2s,color 0.2s !important}
 .nav-pill:hover{background:var(--accent-dim) !important;border-color:var(--accent) !important;color:var(--accent) !important}
 .nav-pill.linkedin{background:var(--accent-dim2);border-color:var(--accent-border)}
+.nav-pill.freelance{background:rgba(192,57,43,0.12);border-color:rgba(192,57,43,0.35);color:#e07060 !important}
+.nav-pill.freelance:hover{background:rgba(192,57,43,0.25) !important;border-color:#c0392b !important;color:#ff7b6b !important}
 /* HERO */
 .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:9rem 2rem 3rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:15%;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(200,169,110,0.07) 0%,transparent 65%);pointer-events:none}
@@ -206,6 +208,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <li><a href="#about" onclick="navTo('about');return false;">About</a></li>
     <li><a href="#cv" onclick="navTo('cv');return false;">CV</a></li>
     <li><a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="nav-pill linkedin">LinkedIn ↗</a></li>
+    <li><a href="freelance.html" target="_blank" class="nav-pill freelance">Freelance</a></li>
     <li><a href="#contact" onclick="navTo('contact');return false;" class="nav-pill">Contact</a></li>
   </ul>
 </nav>
@@ -965,13 +968,13 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 
-/* CONTACT FORM */
+/* CONTACT FORM - Formspree native */
 var form=document.getElementById('contact-form');
 if(form){
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var msg=document.getElementById('form-msg');
     var btn=form.querySelector('button[type="submit"]');
+    var msg=document.getElementById('form-msg');
     btn.textContent='Sending...';
     btn.disabled=true;
     fetch(form.action,{
@@ -985,7 +988,9 @@ if(form){
         msg.style.display='block';
         form.reset();
       } else {
-        throw new Error();
+        return r.json().then(function(data){
+          throw new Error(data.error||'Error');
+        });
       }
     }).catch(function(){
       msg.textContent='Something went wrong. Try f.naimon@gmail.com directly.';

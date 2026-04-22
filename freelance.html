@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabien Naimon — Freelance Game & Level Design · QA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111214;--bg-card:#18191c;--bg-card-hover:#1f2024;--bg-section:#141517;
+  --border:rgba(255,255,255,0.07);--border-mid:rgba(255,255,255,0.12);--border-hover:rgba(255,255,255,0.18);
+  --text-primary:#edeae4;--text-secondary:#8a8780;--text-muted:#44423f;
+  --accent:#c8a96e;--accent-dim:rgba(200,169,110,0.10);--accent-border:rgba(200,169,110,0.25);
+  --red:#c0392b;--red-dim:rgba(192,57,43,0.12);--red-border:rgba(192,57,43,0.3);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-primary);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(200,169,110,0.25);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(17,18,20,0.90);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;color:var(--text-primary);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.8rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-pill{padding:0.45rem 1.1rem;border:1px solid var(--border-mid);border-radius:999px;color:var(--text-primary) !important;transition:border-color 0.2s,background 0.2s,color 0.2s !important}
+.nav-pill:hover{background:var(--accent-dim) !important;border-color:var(--accent) !important;color:var(--accent) !important}
+.nav-pill.portfolio{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent) !important}
+.nav-pill.portfolio:hover{background:var(--accent) !important;color:#0f0f0f !important}
+
+/* DIVIDER */
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,var(--border-mid),transparent)}
+
+/* HERO */
+.hero{min-height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:9rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:15%;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(192,57,43,0.06) 0%,transparent 65%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--red-dim);border:1px solid var(--red-border);color:var(--red);font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:999px;margin-bottom:2rem}
+.hero-badge::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(3rem,8vw,6.5rem);line-height:0.92;letter-spacing:-0.04em;max-width:900px;margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:1.05rem;color:var(--text-secondary);max-width:580px;font-weight:300;margin-bottom:1rem;line-height:1.8}
+.hero-philosophy{font-size:0.95rem;color:var(--text-secondary);max-width:560px;font-weight:300;margin-bottom:2.5rem;line-height:1.8;font-style:italic;opacity:0.75;border-left:2px solid var(--accent);padding-left:1.25rem;text-align:left}
+.hero-ctas{display:flex;gap:0.85rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.85rem;background:var(--accent);color:#0f0f0f;border-radius:999px;font-weight:600;font-size:0.875rem;text-decoration:none;transition:opacity 0.2s,transform 0.2s}
+.btn-primary:hover{opacity:0.85;transform:translateY(-2px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.85rem;border:1px solid var(--border-hover);border-radius:999px;color:var(--text-secondary);font-size:0.875rem;text-decoration:none;transition:border-color 0.2s,color 0.2s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+
+/* SECTIONS */
+section{padding:6rem 3rem}
+.section-label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem}
+.section-header{margin-bottom:3.5rem}
+.section-header h2{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.75rem,3.5vw,2.75rem);letter-spacing:-0.025em;line-height:1.1}
+.section-header p{margin-top:0.65rem;color:var(--text-secondary);font-size:0.9rem;font-weight:300;max-width:560px}
+
+/* SERVICES GRID */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.service-col{background:var(--bg);padding:2.5rem 2rem}
+.service-icon{font-size:1.5rem;margin-bottom:1rem}
+.service-col h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;margin-bottom:1rem;color:var(--text-primary)}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.service-list li{font-size:0.875rem;color:var(--text-secondary);font-weight:300;padding:0.35rem 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:0.6rem}
+.service-list li::before{content:'·';color:var(--accent);flex-shrink:0}
+
+/* PACKS */
+.packs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pack-domain{margin-bottom:3rem}
+.pack-domain:last-child{margin-bottom:0}
+.pack-domain-title{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.pack-domain-title h3{font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;color:var(--text-secondary);text-transform:uppercase}
+.pack-domain-line{flex:1;height:1px;background:var(--border)}
+.pack-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.75rem;display:flex;flex-direction:column;gap:0.85rem;transition:border-color 0.2s,background 0.2s}
+.pack-card:hover{border-color:var(--border-hover);background:var(--bg-card-hover)}
+.pack-card.featured{border-color:var(--accent-border);background:rgba(200,169,110,0.04)}
+.pack-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:0.95rem;letter-spacing:-0.01em;color:var(--text-primary)}
+.pack-price{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-0.03em;color:var(--accent)}
+.pack-price span{font-size:0.8rem;font-weight:400;color:var(--text-muted);letter-spacing:0}
+.pack-desc{font-size:0.85rem;color:var(--text-secondary);font-weight:300;line-height:1.65}
+.pack-features{list-style:none;display:flex;flex-direction:column;gap:0.35rem;margin-top:0.25rem}
+.pack-features li{font-size:0.82rem;color:var(--text-secondary);font-weight:300;display:flex;align-items:flex-start;gap:0.6rem;padding:0.2rem 0}
+.pack-features li::before{content:'·';color:var(--accent);flex-shrink:0}
+.pack-tag{font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:999px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);align-self:flex-start}
+
+/* FLASH */
+.flash-card{background:var(--bg-card);border:1px solid var(--accent-border);border-radius:8px;padding:2rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.flash-left h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:0.35rem}
+.flash-left .flash-price{font-family:'Outfit',sans-serif;font-weight:800;font-size:2.5rem;color:var(--accent);letter-spacing:-0.03em}
+.flash-right ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.flash-right li{font-size:0.875rem;color:var(--text-secondary);font-weight:300;display:flex;align-items:flex-start;gap:0.6rem}
+.flash-right li::before{content:'·';color:var(--accent);flex-shrink:0}
+
+/* TOOLS */
+.tools-grid{display:flex;flex-wrap:wrap;gap:0.5rem}
+.tool-tag{font-size:0.75rem;font-weight:500;letter-spacing:0.06em;padding:0.4rem 0.9rem;border-radius:999px;background:rgba(255,255,255,0.04);color:var(--text-secondary);border:1px solid var(--border)}
+
+/* CTA SECTION */
+.cta-section{background:var(--bg-section)}
+.cta-inner{text-align:center;max-width:560px;margin:0 auto}
+.cta-inner p{color:var(--text-secondary);font-weight:300;font-size:1rem;margin-bottom:2.5rem;line-height:1.8}
+
+/* CONTACT FORM */
+.contact-form{display:flex;flex-direction:column;gap:0.85rem;margin-top:2rem;text-align:left;width:100%}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;background:var(--bg-card);border:1px solid var(--border-mid);border-radius:8px;padding:0.75rem 1rem;color:var(--text-primary);font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:300;outline:none;transition:border-color 0.2s;resize:none}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-muted)}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--accent)}
+.contact-form select option{background:var(--bg-card);color:var(--text-primary)}
+.contact-form textarea{min-height:140px}
+.form-submit{align-self:center;margin-top:0.5rem;cursor:pointer;border:none}
+.form-msg{text-align:center;font-size:0.875rem;padding:0.6rem 1rem;border-radius:8px;display:none}
+.form-msg.success{background:rgba(100,200,100,0.1);border:1px solid rgba(100,200,100,0.3);color:#8ecf8e}
+.form-msg.error{background:rgba(220,80,80,0.1);border:1px solid rgba(220,80,80,0.3);color:#e08080}
+
+/* FOOTER */
+footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:0.77rem}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--text-muted)}
+.footer-logo span{color:var(--accent);opacity:0.5}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.anim{animation:fadeUp 0.75s ease both}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.22s}.d3{animation-delay:0.38s}.d4{animation-delay:0.55s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}.nav-links{gap:1.1rem}
+  section{padding:4rem 1.5rem}
+  .services-grid{grid-template-columns:1fr}
+  .packs-grid{grid-template-columns:1fr}
+  .flash-card{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:0.75rem;text-align:center}
+}
+@media(max-width:640px){
+  .nav-links a{font-size:0.72rem}.nav-pill{padding:0.35rem 0.75rem;font-size:0.72rem !important}
+  .form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">FN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#cv">CV</a></li>
+    <li><a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="nav-pill">LinkedIn ↗</a></li>
+    <li><a href="index.html" class="nav-pill portfolio">← Portfolio</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge anim">Available for freelance missions</div>
+  <h1 class="anim d1">Game & Level<br><em>Design · QA</em></h1>
+  <p class="hero-sub anim d2">Freelance services in Game Design, Level Design, and Quality Assurance — remote, in France or internationally.</p>
+  <p class="hero-philosophy anim d3">Creating a video game takes time. Let's take the time to do things right — I'm not a fan of impossible deadlines. We'll define the scope and timeline together, based on your needs and my availability.</p>
+  <div class="hero-ctas anim d4">
+    <a href="#contact" class="btn-primary">Get in touch ↓</a>
+    <a href="index.html" class="btn-secondary">View my portfolio ↗</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What I do</div>
+  <div class="section-header">
+    <h2>Services</h2>
+    <p>Three areas of expertise, one point of contact.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-col">
+      <div class="service-icon">🕹️</div>
+      <h3>Game Design</h3>
+      <ul class="service-list">
+        <li>Complete Game Design Document</li>
+        <li>Core mechanic design & prototyping</li>
+        <li>Balancing & UX</li>
+        <li>Onboarding & tutorials</li>
+        <li>Gameplay loop design</li>
+        <li>Systemic design</li>
+      </ul>
+    </div>
+    <div class="service-col">
+      <div class="service-icon">🗻</div>
+      <h3>Level Design</h3>
+      <ul class="service-list">
+        <li>Blockout / Greybox creation</li>
+        <li>2D or 3D level design</li>
+        <li>Prototype & layout</li>
+        <li>Rhythm, pacing & difficulty curve</li>
+        <li>Flow & navigation analysis</li>
+        <li>Unreal Engine integration</li>
+      </ul>
+    </div>
+    <div class="service-col">
+      <div class="service-icon">💻</div>
+      <h3>QA Testing</h3>
+      <ul class="service-list">
+        <li>Bug detection & clear bug reports</li>
+        <li>Performance testing</li>
+        <li>UI/UX optimization</li>
+        <li>Static review of design docs</li>
+        <li>Regression testing</li>
+        <li>Build follow-up & ticket management</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PACKS -->
+<section id="packs" style="background:var(--bg-section)">
+  <div class="section-label">Pricing</div>
+  <div class="section-header">
+    <h2>Packs & Rates</h2>
+    <p>All packages are modular and adaptable to your project's scope. Prices are indicative ranges — we'll define the exact scope together.</p>
+  </div>
+
+  <!-- GAME DESIGN -->
+  <div class="pack-domain">
+    <div class="pack-domain-title">
+      <h3>🕹️ Game Design</h3>
+      <div class="pack-domain-line"></div>
+    </div>
+    <div class="packs-grid">
+      <div class="pack-card">
+        <div class="pack-name">Pack 1 — Idea & Concept</div>
+        <div class="pack-price">150 – 200 <span>€</span></div>
+        <div class="pack-desc">Initial exchange (1h) to define your needs. Mechanic or original concept design. Design loop: objective, challenge, reward. Delivery: synthesis document (PDF or Notion).</div>
+      </div>
+      <div class="pack-card featured">
+        <div class="pack-tag">Most popular</div>
+        <div class="pack-name">Pack 2 — System & Documentation</div>
+        <div class="pack-price">350 – 500 <span>€</span></div>
+        <div class="pack-desc">Includes Pack 1. Addition of one or two secondary gameplay systems (draft version: progression, economy, scoring…). Basic balancing tables. Detailed PDF or Notion report.</div>
+      </div>
+      <div class="pack-card">
+        <div class="pack-name">Pack 3 — Collaboration</div>
+        <div class="pack-price">700 – 900 <span>€ / month</span></div>
+        <div class="pack-desc">Ongoing project audit. Design adjustment proposals. Regular feedback (weekly or on-demand). Collaborative work on Notion, Miro or Google Docs. Option: one-off intervention at 60€/h. Blueprint prototyping assistance.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL DESIGN -->
+  <div class="pack-domain" style="margin-top:3rem">
+    <div class="pack-domain-title">
+      <h3>🗻 Level Design</h3>
+      <div class="pack-domain-line"></div>
+    </div>
+    <div class="packs-grid">
+      <div class="pack-card">
+        <div class="pack-name">Pack 1 — Blockout & Intent</div>
+        <div class="pack-price">150 – 350 <span>€</span></div>
+        <div class="pack-desc">Layout creation (paper or engine). Clear gameplay intention. Rhythm, difficulty curve analysis. Synthetic presentation + delivery document (PDF or Notion).</div>
+      </div>
+      <div class="pack-card featured">
+        <div class="pack-tag">Most popular</div>
+        <div class="pack-name">Pack 2 — Test & Iteration</div>
+        <div class="pack-price">350 – 450 <span>€</span></div>
+        <div class="pack-desc">Includes Pack 1. One iteration on the level based on feedback. Flow and navigation optimization. Detailed PDF or Notion report.</div>
+      </div>
+      <div class="pack-card">
+        <div class="pack-name">Pack 3 — Full Project</div>
+        <div class="pack-price">800 <span>€ / month</span></div>
+        <div class="pack-desc">Design of multiple levels (duration defined by project scope). Unreal Engine integration with gameplay/technical constraints. Complete documentation. 1 to 3 month follow-up.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QA -->
+  <div class="pack-domain" style="margin-top:3rem">
+    <div class="pack-domain-title">
+      <h3>💻 QA Testing</h3>
+      <div class="pack-domain-line"></div>
+    </div>
+    <div class="packs-grid">
+      <div class="pack-card">
+        <div class="pack-name">Pack 1 — Flash Report</div>
+        <div class="pack-price">80 – 120 <span>€</span></div>
+        <div class="pack-desc">Quick test session (1–2h). Synthetic report of major bugs. UX / gameplay fluidity feedback.
+          <ul class="pack-features" style="margin-top:0.75rem">
+            <li>+ 50€: video report with commentary</li>
+            <li>+ 20€/h: integration support (Unity/UE)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pack-card featured">
+        <div class="pack-tag">Most popular</div>
+        <div class="pack-name">Pack 2 — Complete Report</div>
+        <div class="pack-price">200 – 300 <span>€</span></div>
+        <div class="pack-desc">3 to 6h test session. Complete structured report (title, severity, reproduction, platform). UX / flow improvement suggestions.
+          <ul class="pack-features" style="margin-top:0.75rem">
+            <li>+ 30€: vocal debrief or coaching (30min–1h)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pack-card">
+        <div class="pack-name">Pack 3 — Full Project QA</div>
+        <div class="pack-price">500 – 900 <span>€ / month</span></div>
+        <div class="pack-desc">Regular build follow-up (scope-defined). Tests at each update. Ticket tracking & bug reproduction. Regression testing. Communication via Trello / Notion / Jira.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FLASH CONSULTATION -->
+<section>
+  <div class="section-label">Quick start</div>
+  <div class="section-header">
+    <h2>Flash Consultation</h2>
+    <p>Not sure which pack fits? Start here.</p>
+  </div>
+  <div class="flash-card">
+    <div class="flash-left">
+      <div class="flash-price">100 €</div>
+      <h3>Flash Pack</h3>
+      <p style="color:var(--text-secondary);font-size:0.875rem;font-weight:300;margin-top:0.5rem">Duration to be defined based on your needs.</p>
+    </div>
+    <div class="flash-right">
+      <ul>
+        <li>Call to assess the need for an existing or upcoming project</li>
+        <li>Review of existing documents during the call (static review)</li>
+        <li>In-game demonstration of mechanics and live feedback</li>
+        <li>General advice and identification of potentially blocking points</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TOOLS -->
+<section style="background:var(--bg-section)">
+  <div class="section-label">Tech stack</div>
+  <div class="section-header">
+    <h2>Tools & Environments</h2>
+  </div>
+  <div class="tools-grid">
+    <span class="tool-tag">Unreal Engine 5</span>
+    <span class="tool-tag">Blueprint</span>
+    <span class="tool-tag">Unity</span>
+    <span class="tool-tag">Jira</span>
+    <span class="tool-tag">Trello</span>
+    <span class="tool-tag">Notion</span>
+    <span class="tool-tag">ClickUp</span>
+    <span class="tool-tag">Miro</span>
+    <span class="tool-tag">SVN / Tortoise</span>
+    <span class="tool-tag">Jenkins</span>
+    <span class="tool-tag">Google Suite</span>
+    <span class="tool-tag">Microsoft Suite</span>
+    <span class="tool-tag">Canva</span>
+    <span class="tool-tag">Framer</span>
+    <span class="tool-tag">Claude Code</span>
+    <span class="tool-tag">DaVinci Resolve</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content:center;display:flex">Contact</div>
+    <h2 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.025em;margin-bottom:1.25rem">Let's build something together</h2>
+    <p>Available for remote freelance missions, in France or internationally. French or English.</p>
+    <form class="contact-form" id="freelance-form" action="https://formspree.io/f/mzdygwjg" method="POST">
+      <div class="form-row">
+        <input type="text" name="firstname" placeholder="First name" required>
+        <input type="text" name="lastname" placeholder="Last name" required>
+      </div>
+      <input type="email" name="email" placeholder="Email address" required>
+      <select name="service">
+        <option value="" disabled selected>Type of service needed</option>
+        <option value="Game Design">Game Design</option>
+        <option value="Level Design">Level Design</option>
+        <option value="QA Testing">QA Testing</option>
+        <option value="Flash Consultation">Flash Consultation</option>
+        <option value="Multiple / Not sure">Multiple / Not sure yet</option>
+      </select>
+      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+      <button type="submit" class="btn-primary form-submit">Send message ↗</button>
+      <div class="form-msg" id="form-msg"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">FN<span>.</span></div>
+  <div>© 2025 Fabien Naimon — Freelance Game & Level Design · QA</div>
+  <div><a href="mailto:f.naimon@gmail.com" style="color:var(--text-muted);text-decoration:none">f.naimon@gmail.com</a></div>
+</footer>
+
+<script>
+var form=document.getElementById('freelance-form');
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button[type="submit"]');
+    var msg=document.getElementById('form-msg');
+    btn.textContent='Sending...';
+    btn.disabled=true;
+    fetch(form.action,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{Accept:'application/json'}
+    }).then(function(r){
+      if(r.ok){
+        msg.textContent='Message sent! I\'ll get back to you soon.';
+        msg.className='form-msg success';
+        msg.style.display='block';
+        form.reset();
+      } else {
+        return r.json().then(function(data){throw new Error(data.error||'Error')});
+      }
+    }).catch(function(){
+      msg.textContent='Something went wrong. Try f.naimon@gmail.com directly.';
+      msg.className='form-msg error';
+      msg.style.display='block';
+    }).finally(function(){
+      btn.textContent='Send message ↗';
+      btn.disabled=false;
+    });
+  });
+}
+</script>
+</body>
+</html>
