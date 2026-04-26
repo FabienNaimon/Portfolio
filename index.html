@@ -313,13 +313,13 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
           <p class="project-desc">Custom laser beam puzzle. Difficulty 2/4, tested across multiple iterations.</p>
         </div>
       </a>
-      <a class="project-card" onclick="openProject('enviro'); return false;" href="#">
-        <div class="thumb-wrapper"><img class="project-thumb" src="images/desert_01.png" alt="Environment Design"></div>
+      <a class="project-card" onclick="openProject('econ'); return false;" href="#">
+        <div class="thumb-wrapper"><img class="project-thumb" src="images/econ_cover.png" alt="Economic System Workshop"></div>
         <div class="project-card-inner">
           <div class="project-arrow">↗</div>
-          <div class="project-tags"><span class="tag hl">Environment Design</span><span class="tag">UE5</span><span class="tag">World Building</span></div>
-          <h3>Environment Design</h3>
-          <p class="project-desc">Nature, desert planet, jungle temple. Megascan + UE5.</p>
+          <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Systemic Design</span><span class="tag">Workshop</span></div>
+          <h3>Economic System — Workshop</h3>
+          <p class="project-desc">Design of two economic systems from a game pitch. Action Shooter / Rogue-Like. References: Returnal, Risk of Rain 2.</p>
         </div>
       </a>
     </div>
@@ -710,25 +710,81 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 </div>
 
 <!-- ===== ENVIRONMENT DESIGN ===== -->
-<div class="project-page" id="project-enviro">
+<div class="project-page" id="project-econ">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/desert_01.png" alt="Desertic Planet">
-  <h1>Enviro. Design — Desertic Planet</h1>
-  <div class="pp-tags"><span class="tag hl">Environment Design</span><span class="tag">World Building</span><span class="tag">UE5</span><span class="tag">Megascan</span><span class="tag">World Creator</span></div>
+  <img class="pp-hero" src="images/econ_cover.png" alt="Economic System Workshop">
+  <h1>Economic System — Workshop</h1>
+  <div class="pp-tags">
+    <span class="tag hl">Game Design</span>
+    <span class="tag">Systemic Design</span>
+    <span class="tag">Balancing</span>
+    <span class="tag">Rogue-Like</span>
+    <span class="tag">Workshop</span>
+  </div>
   <div class="pp-body">
-    <p>To create these images of a desert planet I used <strong>Unreal Engine 5</strong>, as well as the new tools it offers to designers, including the <strong>Quixel Bridge</strong>, which allows access to the entire MegaScans library. I was able to add textures and assets to give life to this environment.</p>
-    <p>For the generation of the <strong>Height Map</strong> I used the <strong>World Creator</strong> tool, and then generated the landscape from the exported height map file.</p>
-    <p>I also used the <strong>PanoraMake plug-in</strong>, created by <a href="https://www.artstation.com/sylvainlebeau" target="_blank" style="color:var(--accent)">Sylvain Lebeau</a>, which allows creating extremely detailed landscapes through a system of masks applied on the landscape — bringing the necessary variety to the terrain.</p>
-    <div class="pp-screenshots full">
-      <img src="images/desert_01.png" alt="Desertic Planet view 1">
+
+    <h2>Game Pitch</h2>
+    <p>Design of two economic systems from a game pitch. The game is a <strong>TPS Action Shooter / Rogue-Like</strong> (keyboard/mouse & controller), with references drawn from <strong>Returnal</strong>, Risk of Rain 2, and Immortal Redneck.</p>
+
+    <h2>Design Intentions</h2>
+    <p>The global design intention was to produce a <strong>challenging experience</strong>, where the economic systems help facilitate player progression without making it trivial. Difficulty remains high, pacing is fast and intense, and keeping the player constantly in motion through fast, mobile enemies is a core pillar.</p>
+    <p>Obtaining items and resources that facilitate progression, as well as unlocking upgrades, are features drawn from rogue-like/lite games — particularly <strong>Returnal</strong>, which served as the primary reference.</p>
+
+    <h2>Resources — Three Currencies</h2>
+    <div class="role-grid">
+      <div class="role-item">
+        <div class="role-label">🟡 Gold — Temporary</div>
+        <div class="role-val">Lost on death. Used to buy items during a run. Obtained by killing enemies. High frequency. Most volatile currency.</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">🟢 Glyphon — Temporary</div>
+        <div class="role-val">Lost on death, but used to permanently unlock new shop items. Requires spending both Gold AND Glyphon. Obtained from chests. Medium frequency.</div>
+      </div>
+      <div class="role-item">
+        <div class="role-label">🔴 Mercury — Permanent</div>
+        <div class="role-val">Kept on death. Used to buy weapons in dedicated shop rooms. Obtained by defeating bosses and elite enemies that appear randomly. Rare.</div>
+      </div>
     </div>
-    <div class="pp-screenshots full">
-      <img src="images/desert_02.png" alt="Desertic Planet view 2">
+
+    <h2>Economic System — Part 1: Resources</h2>
+    <p>Each currency follows a classic economic loop:</p>
+    <ul>
+      <li><strong>Taps (income):</strong> enemies (Gold), chests (Glyphon), bosses & elites (Mercury)</li>
+      <li><strong>Storage:</strong> the player's inventory, auto-managed</li>
+      <li><strong>Converters:</strong> shop rooms, where currencies transform into items or weapons</li>
+      <li><strong>Sinks (expenditure):</strong> player death resets Gold and Glyphon to zero — Mercury is the only exception and persists across runs</li>
+    </ul>
+
+    <h2>Item Types</h2>
+    <ul>
+      <li><strong>Temporary objects</strong> — Added to the current run rotation. Bought with Gold only. Lost on death. Can be consumables (one-use) or passives (persist until death).</li>
+      <li><strong>Permanent objects</strong> — Available only at shop rooms. Bought with Gold + Glyphon. Added to the permanent loot pool and available in future runs.</li>
+      <li><strong>Weapons</strong> — Bought with Mercury only. Replaces the current weapon for the run and becomes selectable at the start of future runs from the weapons workbench.</li>
+    </ul>
+
+    <h2>Room Structure & Respawn</h2>
+    <p>Using a pool of 50 designer-created rooms, each biome contains 10. Resource density is calibrated so that by the end of the first biome, the player can afford at least one useful item — giving them a real choice between spending or saving. Enemies only respawn on player death or a new run.</p>
+    <p>Bosses drop a fixed amount of Gold, Glyphon, and Mercury every time they are defeated — making farming possible, but optional. A <strong>teleportation portal</strong> appears before the biome boss, allowing the player to skip ahead if they've already defeated it once.</p>
+
+    <h2>Economic System — Part 2: Health Bar</h2>
+    <p>The player's health bar is itself treated as an economic system, with its own Taps, Sinks, and Converters:</p>
+    <ul>
+      <li><strong>Taps:</strong> health vials dropped randomly by enemies (small amounts, non-stackable), and the <strong>counter-attack</strong> mechanic — hitting back immediately after taking damage recovers a portion of the HP lost, keeping the player aggressive and rewarding skill.</li>
+      <li><strong>Sinks:</strong> enemy damage, environmental traps (lock rooms, wall lasers, turrets), and void falls — falling doesn't kill the player outright, instead costing a fixed HP amount and teleporting them near the fall point.</li>
+      <li><strong>Converters:</strong> shop rooms (buy health-restoring items using Gold/Glyphon), and the <strong>Sacrifice</strong> mechanic — the player can voluntarily spend HP to activate a temporary damage boost on their ammunition, stackable with existing ammo type bonuses.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Both economic systems are designed to work <strong>harmoniously</strong> without requiring perfect balance. Offering genuine tradeoffs — spend now or save for later, rush the boss or clear rooms for resources, sacrifice HP for power — is central to the rogue-like fantasy. Every player skill is continuously tested, maintaining a permanent sense of pressure and tension.</p>
+
+    <div class="pp-note">
+      <strong>📄 Full workshop document:</strong> the complete presentation including all system diagrams, item lists, and balancing tables is available for download below.
     </div>
-    <div class="pp-screenshots full">
-      <img src="images/desert_03.png" alt="Desertic Planet view 3">
+    <div style="margin-bottom:2rem">
+      <a href="FabienNAIMON_EconomicSystems.pdf" download class="btn-primary">Download presentation (PDF) ↓</a>
     </div>
+
   </div>
 </div>
 </div>
