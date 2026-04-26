@@ -62,7 +62,9 @@ section{padding:7rem 3rem}
 .sub-label{font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.85rem;margin-top:2rem}
 /* PROJECT GRID */
 .projects-grid{display:grid;gap:1px;background:var(--border)}
-.cols-3{grid-template-columns:repeat(3,1fr)}.cols-2{grid-template-columns:repeat(2,1fr)}.cols-1{grid-template-columns:1fr}
+.cols-3{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.cols-2{grid-template-columns:repeat(auto-fit,minmax(360px,1fr))}
+.cols-1{grid-template-columns:1fr}
 .project-card{background:var(--bg);cursor:pointer;text-decoration:none;color:inherit;display:block;overflow:hidden;transition:background 0.3s;position:relative}
 .project-card:hover{background:var(--bg-card-hover)}
 .project-card.locked{cursor:default}.project-card.locked:hover{background:var(--bg)}
@@ -179,18 +181,18 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
   section{padding:5rem 1.5rem}
   .about-grid{grid-template-columns:1fr;gap:3rem}
   .cv-layout{grid-template-columns:1fr;gap:3rem}
-  .cols-3{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:0.75rem;text-align:center}
   .project-page-inner{padding:4rem 1.5rem 6rem}
   .pp-screenshots{grid-template-columns:1fr}
   .skills-block{grid-template-columns:1fr}
 }
 @media(max-width:640px){
-  .cols-3,.cols-2{grid-template-columns:1fr}
   nav{padding:0.9rem 1.25rem}
   .nav-links{gap:0.75rem}
   .nav-pill{padding:0.35rem 0.75rem;font-size:0.72rem !important}
   .nav-links a{font-size:0.72rem;letter-spacing:0.04em}
+  .cols-3{grid-template-columns:1fr}
+  .cols-2{grid-template-columns:1fr}
 }
 @media(max-width:480px){
   .nav-pill.linkedin span{display:none}
@@ -779,7 +781,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>Both economic systems are designed to work <strong>harmoniously</strong> without requiring perfect balance. Offering genuine tradeoffs — spend now or save for later, rush the boss or clear rooms for resources, sacrifice HP for power — is central to the rogue-like fantasy. Every player skill is continuously tested, maintaining a permanent sense of pressure and tension.</p>
 
     <div class="pp-note">
-      <strong>📄 Full workshop document:</strong> IN FRENCH - the complete presentation including all system diagrams, item lists, and balancing tables is available for download below.
+      <strong>📄 Full workshop document:</strong> IN FRENCH ONLY - the complete presentation including all system diagrams, item lists, and balancing tables is available for download below.
     </div>
     <div style="margin-bottom:2rem">
       <a href="FabienNAIMON_EconomicSystems.pdf" download class="btn-primary">Download presentation (PDF) ↓</a>
