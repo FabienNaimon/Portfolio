@@ -1,0 +1,15 @@
+# Treat binary assets as binary so Git never applies EOL (CRLF/LF) conversion,
+# which would corrupt them. Autocrlf is enabled on this machine.
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.gif  binary
+*.ico  binary
+
+# Source files: normalize to LF in the repo.
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.md   text eol=lf

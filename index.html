@@ -209,8 +209,8 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <li><a href="#projects" onclick="navTo('projects');return false;">Projects</a></li>
     <li><a href="#about" onclick="navTo('about');return false;">About</a></li>
     <li><a href="#cv" onclick="navTo('cv');return false;">CV</a></li>
-    <li><a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="nav-pill linkedin">LinkedIn ↗</a></li>
-    <li><a href="freelance.html" target="_blank" class="nav-pill freelance">Freelance</a></li>
+    <li><a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" rel="noopener" class="nav-pill linkedin">LinkedIn ↗</a></li>
+    <li><a href="freelance.html" target="_blank" rel="noopener" class="nav-pill freelance">Freelance</a></li>
     <li><a href="#contact" onclick="navTo('contact');return false;" class="nav-pill">Contact</a></li>
   </ul>
 </nav>
@@ -224,7 +224,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
   <p class="hero-welcome anim d3">Welcome — enjoy your visit, and feel free to contact me in French or English.</p>
   <div class="hero-ctas anim d4">
     <a href="#projects" onclick="navTo('projects');return false;" class="btn-primary">See projects ↓</a>
-    <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" rel="noopener" class="btn-secondary">LinkedIn ↗</a>
     <a href="mailto:f.naimon@gmail.com" class="btn-secondary">f.naimon@gmail.com</a>
   </div>
 </section>
@@ -245,7 +245,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <div class="projects-grid cols-1">
       <a class="project-card" onclick="openProject('cthulhu'); return false;" href="#">
         <div class="thumb-wrapper" style="overflow:hidden;max-height:320px">
-          <img class="project-thumb" src="images/cthulhu_main.webp" alt="Cthulhu The Cosmic Abyss" style="aspect-ratio:21/9;object-position:center top">
+          <img loading="lazy" class="project-thumb" src="images/cthulhu_main.webp" alt="Cthulhu The Cosmic Abyss" style="aspect-ratio:21/9;object-position:center top">
         </div>
         <div class="project-card-inner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem">
           <div>
@@ -268,7 +268,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <div class="sub-label" style="margin-top:0">Games</div>
     <div class="projects-grid cols-3">
       <a class="project-card" onclick="openProject('way'); return false;" href="#">
-        <div class="thumb-wrapper"><img class="project-thumb" src="images/way_logo.png" alt="Where Are You?"></div>
+        <div class="thumb-wrapper"><img loading="lazy" class="project-thumb" src="images/way_logo.png" alt="Where Are You?"></div>
         <div class="project-card-inner">
           <div class="project-arrow">↗</div>
           <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Co-op</span></div>
@@ -277,7 +277,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
         </div>
       </a>
       <a class="project-card" onclick="openProject('bomber'); return false;" href="#">
-        <div class="thumb-wrapper"><img class="project-thumb" src="images/bomber_logo.png" alt="Bomber Bash"></div>
+        <div class="thumb-wrapper"><img loading="lazy" class="project-thumb" src="images/bomber_logo.png" alt="Bomber Bash"></div>
         <div class="project-card-inner">
           <div class="project-arrow">↗</div>
           <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Party Game</span><span class="tag">Game Jam</span></div>
@@ -286,7 +286,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
         </div>
       </a>
       <a class="project-card" onclick="openProject('tlr'); return false;" href="#">
-        <div class="thumb-wrapper"><img class="project-thumb" src="images/tlr_hero.png" alt="Turbo Light Rush"></div>
+        <div class="thumb-wrapper"><img loading="lazy" class="project-thumb" src="images/tlr_hero.png" alt="Turbo Light Rush"></div>
         <div class="project-card-inner">
           <div class="project-arrow">↗</div>
           <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Steam</span></div>
@@ -298,7 +298,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <div class="sub-label">Game & Level Design</div>
     <div class="projects-grid cols-3">
       <a class="project-card" onclick="openProject('monastery'); return false;" href="#">
-        <div class="thumb-wrapper"><img class="project-thumb" src="images/monastery_00.png" alt="The Monastery"></div>
+        <div class="thumb-wrapper"><img loading="lazy" class="project-thumb" src="images/monastery_00.png" alt="The Monastery"></div>
         <div class="project-card-inner">
           <div class="project-arrow">↗</div>
           <div class="project-tags"><span class="tag hl">Level Design</span><span class="tag">Narrative</span><span class="tag">UE5</span></div>
@@ -307,7 +307,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
         </div>
       </a>
       <a class="project-card" onclick="openProject('portal'); return false;" href="#">
-        <div class="thumb-wrapper"><img class="project-thumb" src="images/portal_hero.png" alt="Portal 2 Level"></div>
+        <div class="thumb-wrapper"><img loading="lazy" class="project-thumb" src="images/portal_hero.png" alt="Portal 2 Level"></div>
         <div class="project-card-inner">
           <div class="project-arrow">↗</div>
           <div class="project-tags"><span class="tag hl">Level Design</span><span class="tag">Puzzle</span><span class="tag">Portal 2</span></div>
@@ -316,7 +316,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
         </div>
       </a>
       <a class="project-card" onclick="openProject('econ'); return false;" href="#">
-        <div class="thumb-wrapper"><img class="project-thumb" src="images/econ_cover.png" alt="Economic System Workshop"></div>
+        <div class="thumb-wrapper"><img loading="lazy" class="project-thumb" src="images/econ_cover.png" alt="Economic System Workshop"></div>
         <div class="project-card-inner">
           <div class="project-arrow">↗</div>
           <div class="project-tags"><span class="tag hl">Game Design</span><span class="tag">Systemic Design</span><span class="tag">Workshop</span></div>
@@ -338,7 +338,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
       <p>An effective communicator across disciplines — designers, programmers, artists. I'm proficient in <strong>Unreal Engine 5</strong> and actively integrate <strong>AI tools</strong> (Claude Code, ChatGPT) into my workflows to accelerate the design of tools that help produce efficient Blueprint prototypes. These tools also benefit my colleagues and allow them to speed up their own workflow and processes.</p>
       <p>Currently QA Analyst at <strong>Big Bad Wolf Studio</strong>, I'm simultaneously building my skills by developing game concepts and sharpening my personal abilities in video editing and production through a <strong>YouTube channel dedicated to video games</strong> — ask me about it, I'd love to talk!</p>
       <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap">
-        <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="btn-primary">LinkedIn ↗</a>
+        <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" rel="noopener" class="btn-primary">LinkedIn ↗</a>
         <a href="mailto:f.naimon@gmail.com" class="btn-secondary">Get in touch</a>
       </div>
     </div>
@@ -376,7 +376,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
   <div class="section-header">
     <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
       <h2>Curriculum Vitae</h2>
-      <a href="Fabien_Naimon_CV.pdf" download class="btn-secondary" style="font-size:0.8rem;padding:0.5rem 1.1rem">Download PDF ↓</a>
+      <a href="Fabien_Naimon_CV_EN.pdf" download class="btn-secondary" style="font-size:0.8rem;padding:0.5rem 1.1rem">Download CV (PDF) ↓</a>
     </div>
     <p>Game Designer · Tech Designer · Bordeaux</p>
   </div>
@@ -462,7 +462,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>Available for game/level design projects, indie collaborations, and creative work. In French or English.</p>
     <div class="contact-links" style="margin-bottom:2rem">
       <a href="mailto:f.naimon@gmail.com" class="btn-secondary">f.naimon@gmail.com</a>
-      <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+      <a href="https://www.linkedin.com/in/fabien-naimon-a89b67182/" target="_blank" rel="noopener" class="btn-secondary">LinkedIn ↗</a>
     </div>
     <form class="contact-form" id="contact-form" action="https://formspree.io/f/mzdygwjg" method="POST">
       <div class="form-row">
@@ -490,7 +490,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <div class="project-page" id="project-way">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/way_logo.png" alt="Where Are You?">
+  <img loading="lazy" class="pp-hero" src="images/way_logo.png" alt="Where Are You?">
   <h1>Where Are You?</h1>
   <div class="pp-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Sound Design</span><span class="tag">Lead Project</span><span class="tag">Online Co-op</span><span class="tag">Steam</span></div>
   <div class="pp-body">
@@ -506,23 +506,23 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 
     <p>The game contains <strong>3 distinct levels</strong>, each built around a specific theme with multiple ways to reach the objective.</p>
     <div class="pp-screenshots">
-      <img src="images/way_01.png" alt="Level 1 - Tutorial">
-      <img src="images/way_02.png" alt="Level 2 - The Cave">
+      <img loading="lazy" src="images/way_01.png" alt="Level 1 - Tutorial">
+      <img loading="lazy" src="images/way_02.png" alt="Level 2 - The Cave">
     </div>
     <ul>
       <li><strong>Level 1 — Tutorial:</strong> both players evolve together and gradually discover all the main mechanics.</li>
       <li><strong>Level 2 — The Cave:</strong> mechanics confirmed, but this time the players evolve separately. Codes/combinations system introduced.</li>
     </ul>
     <div class="pp-screenshots full">
-      <img src="images/way_03.png" alt="Level 3 - The Labyrinths">
+      <img loading="lazy" src="images/way_03.png" alt="Level 3 - The Labyrinths">
     </div>
     <ul>
       <li><strong>Level 3 — The Labyrinths:</strong> platforming sequence, then navigation through two separate labyrinths. An update is planned.</li>
     </ul>
     <div class="pp-note"><strong>⚠ Required to play:</strong> two separate Steam accounts are needed to play with a friend.</div>
     <div class="pp-links">
-      <a href="https://1drv.ms/u/s!AqwDBgHaQCQQ2j7y7Y9bWZ6zPvZE?e=S86JsS" class="btn-primary" target="_blank">Download the game</a>
-      <a href="https://1drv.ms/p/s!AqwDBgHaQCQQ2j92xnwTlinpLu_G?e=6BYs35" class="btn-secondary" target="_blank">Documentation (FR)</a>
+      <a href="https://1drv.ms/u/s!AqwDBgHaQCQQ2j7y7Y9bWZ6zPvZE?e=S86JsS" class="btn-primary" target="_blank" rel="noopener">Download the game</a>
+      <a href="https://1drv.ms/p/s!AqwDBgHaQCQQ2j92xnwTlinpLu_G?e=6BYs35" class="btn-secondary" target="_blank" rel="noopener">Documentation (FR)</a>
     </div>
   </div>
 </div>
@@ -532,7 +532,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <div class="project-page" id="project-bomber">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/bomber_logo.png" alt="Bomber Bash">
+  <img loading="lazy" class="pp-hero" src="images/bomber_logo.png" alt="Bomber Bash">
   <h1>Bomber Bash</h1>
   <div class="pp-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Sound Design</span><span class="tag">48h Game Jam</span><span class="tag">Up to 4 players</span></div>
   <div class="pp-body">
@@ -545,12 +545,12 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
       <div class="role-item"><div class="role-label">Sound Design</div><div class="role-val">Full audio direction on the project.</div></div>
     </div>
     <h2>Gameplay Video</h2>
-    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/bByEoJ_mKJI?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/bByEoJ_mKJI?rel=0&modestbranding=1" title="Bomber Bash — gameplay video" allowfullscreen></iframe></div>
     <h2>Content produced in 48h</h2>
     <p>Inspired by <em>Fall Guys</em> and <em>Bomberman</em>, up to 4 players, we managed to produce:</p>
     <div class="pp-screenshots">
-      <img src="images/bomber_logo.png" alt="Bomber Bash environments">
-      <img src="images/bomber_arena.png" alt="Bomber Bash gameplay">
+      <img loading="lazy" src="images/bomber_logo.png" alt="Bomber Bash environments">
+      <img loading="lazy" src="images/bomber_arena.png" alt="Bomber Bash gameplay">
     </div>
     <ul>
       <li>4 environments: <strong>Medieval Castle · Beach · Disco Club · Japan</strong></li>
@@ -559,10 +559,10 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     </ul>
     <h2>Design Intent</h2>
     <p>The jam theme was <strong>Limited Space</strong>. By choosing a destructible terrain, the game sticks perfectly to the theme: the more you play, the more space shrinks, the more pressure builds.</p>
-    <p>2D UI inside the game — Artist: <a href="https://www.artstation.com/diel" target="_blank" style="color:var(--accent)">Baptiste Diehl</a>. Thank you!</p>
+    <p>2D UI inside the game — Artist: <a href="https://www.artstation.com/diel" target="_blank" rel="noopener" style="color:var(--accent)">Baptiste Diehl</a>. Thank you!</p>
     <div class="pp-links">
-      <a href="https://1drv.ms/u/s!AqwDBgHaQCQQ2V76J0lVgyS8KYa7?e=9xRswJ" class="btn-primary" target="_blank">Download the game</a>
-      <a href="https://www.youtube.com/watch?v=bByEoJ_mKJI" class="btn-secondary" target="_blank">Gameplay video ↗</a>
+      <a href="https://1drv.ms/u/s!AqwDBgHaQCQQ2V76J0lVgyS8KYa7?e=9xRswJ" class="btn-primary" target="_blank" rel="noopener">Download the game</a>
+      <a href="https://www.youtube.com/watch?v=bByEoJ_mKJI" class="btn-secondary" target="_blank" rel="noopener">Gameplay video ↗</a>
     </div>
   </div>
 </div>
@@ -572,14 +572,14 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <div class="project-page" id="project-tlr">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/tlr_hero.png" alt="Turbo Light Rush">
+  <img loading="lazy" class="pp-hero" src="images/tlr_hero.png" alt="Turbo Light Rush">
   <h1>Turbo Light Rush</h1>
   <div class="pp-tags"><span class="tag hl">Game Design</span><span class="tag">Level Design</span><span class="tag">Sound Design</span><span class="tag">Blueprint</span><span class="tag">Steam</span><span class="tag">Android</span></div>
   <div class="pp-body">
     <p>Student project turned real game. Built from scratch with <strong>Unreal Engine 4</strong>, Turbo Light Rush is a Synthwave Run & Gun released on <strong>Steam and Google Play</strong>. 13 levels, 3 worlds, an original OST, a boss fight, an "Endless" mode, and two different endings.</p>
-    <p style="font-size:0.85rem;color:var(--text-muted)">Android: <a href="http://urlr.me/cnrxd" target="_blank" style="color:var(--accent)">urlr.me/cnrxd</a> &nbsp;·&nbsp; Steam: <a href="https://store.steampowered.com/app/2022510/Turbo_Light_Rush/" target="_blank" style="color:var(--accent)">store.steampowered.com</a></p>
+    <p style="font-size:0.85rem;color:var(--text-muted)">Android: <a href="http://urlr.me/cnrxd" target="_blank" rel="noopener" style="color:var(--accent)">urlr.me/cnrxd</a> &nbsp;·&nbsp; Steam: <a href="https://store.steampowered.com/app/2022510/Turbo_Light_Rush/" target="_blank" rel="noopener" style="color:var(--accent)">store.steampowered.com</a></p>
     <h2>Gameplay Video</h2>
-    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/B76C7Mj_yfQ?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/B76C7Mj_yfQ?rel=0&modestbranding=1" title="Turbo Light Rush — gameplay video" allowfullscreen></iframe></div>
     <blockquote>"A Run and Gun on Android and Steam created on Unreal Engine? What could possibly go wrong?!"</blockquote>
     <h2>My Roles</h2>
     <div class="role-grid">
@@ -598,7 +598,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>The concept was built on three pillars: <strong>Fun · Synthwave · Speed</strong>. References included <em>Sonic Runners Adventures</em>, <em>Super Mario Run</em>, <em>Geometry Dash</em>, <em>Jetpack Joyride</em>, and more.</p>
     <h2>World Structure</h2>
     <div class="pp-screenshots full">
-      <img src="images/tlr_hero.png" alt="Turbo Light Rush level design">
+      <img loading="lazy" src="images/tlr_hero.png" alt="Turbo Light Rush level design">
     </div>
     <ul>
       <li><strong>World 1:</strong> easy and accessible. Tutorial introduces main mechanics — Dash & Jump, Fire & Jump, Fire & Dash.</li>
@@ -609,8 +609,8 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>All songs and sounds in Turbo Light Rush were created in <strong>FL Studio</strong>. A special track was composed to replace the Level 7 song for the Steam release.</p>
     <p>Six months of work later, the game was released on <strong>Google Play</strong>, then on <strong>Steam</strong> with the Boss Fight and new features added. We are really proud of our game — we made an entire game <strong>from scratch</strong>.</p>
     <div class="pp-links">
-      <a href="https://store.steampowered.com/app/2022510/Turbo_Light_Rush/" class="btn-primary" target="_blank">View on Steam</a>
-      <a href="https://soundcloud.com/user-369823822/sets/turbo-light-rush-original-game-soundtrack" class="btn-secondary" target="_blank">OST on Soundcloud ↗</a>
+      <a href="https://store.steampowered.com/app/2022510/Turbo_Light_Rush/" class="btn-primary" target="_blank" rel="noopener">View on Steam</a>
+      <a href="https://soundcloud.com/user-369823822/sets/turbo-light-rush-original-game-soundtrack" class="btn-secondary" target="_blank" rel="noopener">OST on Soundcloud ↗</a>
     </div>
   </div>
 </div>
@@ -620,7 +620,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <div class="project-page" id="project-monastery">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/monastery_00.png" alt="The Monastery">
+  <img loading="lazy" class="pp-hero" src="images/monastery_00.png" alt="The Monastery">
   <h1>Level Design — The Monastery</h1>
   <div class="pp-tags"><span class="tag hl">Level Design</span><span class="tag">Spatial Narrative</span><span class="tag">Blueprint</span><span class="tag">UE5</span><span class="tag">Megascan</span></div>
   <div class="pp-body">
@@ -630,22 +630,22 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>The artistic direction is based on a ruined monastery, with a church occupying the central place. Religious icons, along with extensive environmental and textual storytelling, provide the player with the necessary clues to understand the events that transpired. These elements are not mandatory but greatly enhance comprehension, enabling the player to make a clear and informed choice when faced with the NPC dialogue.</p>
     <h2>3 Interconnected Zones</h2>
     <div class="pp-screenshots">
-      <img src="images/monastery_03.png" alt="Zone 1">
-      <img src="images/monastery_00.png" alt="Zone 1b">
+      <img loading="lazy" src="images/monastery_03.png" alt="Zone 1">
+      <img loading="lazy" src="images/monastery_00.png" alt="Zone 1b">
     </div>
     <ul>
       <li><strong>Zone 1 — Starting area / spawn point:</strong> small outer courtyard, dining hall, and main bridge. This area already contains the main gameplay/scripting elements introduced throughout the level.</li>
     </ul>
     <div class="pp-screenshots">
-      <img src="images/monastery_04.png" alt="Zone 2">
-      <img src="images/monastery_05.png" alt="Zone 2b">
+      <img loading="lazy" src="images/monastery_04.png" alt="Zone 2">
+      <img loading="lazy" src="images/monastery_05.png" alt="Zone 2b">
     </div>
     <ul>
       <li><strong>Zone 2 — Main building:</strong> a long corridor adorned with paintings telling the story of the warrior monks, a cell containing a strange being. Two secret passages connect to the church roof and the waterfall area.</li>
     </ul>
     <div class="pp-screenshots">
-      <img src="images/monastery_07.png" alt="Zone 3">
-      <img src="images/monastery_08.png" alt="Zone 3b">
+      <img loading="lazy" src="images/monastery_07.png" alt="Zone 3">
+      <img loading="lazy" src="images/monastery_08.png" alt="Zone 3b">
     </div>
     <ul>
       <li><strong>Zone 3 — The church and balcony:</strong> additional descriptive elements, a door leading to a tomb carved into the rock containing the level's final interactive element.</li>
@@ -665,8 +665,8 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>Gameplay loop: <strong>Objective</strong> — find 8 relics and exit with the good ending. <strong>Challenge 1</strong> — find all relics to unlock the exit door. <strong>Challenge 2</strong> — be tested by the NPC dialogue, demonstrating determination or yielding to ease. <strong>Reward</strong> — exit with the good ending screen.</p>
     <h2>Blueprint — Scripted Systems</h2>
     <div class="pp-screenshots">
-      <img src="images/monastery_bp_01.png" alt="Blueprint Widget">
-      <img src="images/monastery_bp_02.png" alt="Blueprint doors">
+      <img loading="lazy" src="images/monastery_bp_01.png" alt="Blueprint Widget">
+      <img loading="lazy" src="images/monastery_bp_02.png" alt="Blueprint doors">
     </div>
     <ul>
       <li><strong>Master Widget:</strong> interactive contextual widget displayed each time the player interacts with an element, blocking controls until "OK" is confirmed.</li>
@@ -675,14 +675,14 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
       <li><strong>Secret passages:</strong> opened remotely via a "button", with a camera switch showing which door has opened.</li>
     </ul>
     <div class="pp-screenshots full">
-      <img src="images/monastery_bp_03.png" alt="Blueprint Interaction Key">
+      <img loading="lazy" src="images/monastery_bp_03.png" alt="Blueprint Interaction Key">
     </div>
     <ul>
       <li><strong>Interaction key (E):</strong> depending on what the line trace hits, different information is displayed. Cascading verification process — additional elements can be added easily.</li>
     </ul>
     <p>Assets from <strong>Quixel Megascan</strong> library on Unreal Engine 5.</p>
     <div class="pp-links">
-      <a href="https://1drv.ms/f/s!AqwDBgHaQCQQhbVl8QzWJMnmymyEtQ?e=pe21qk" class="btn-primary" target="_blank">Download the game</a>
+      <a href="https://1drv.ms/f/s!AqwDBgHaQCQQhbVl8QzWJMnmymyEtQ?e=pe21qk" class="btn-primary" target="_blank" rel="noopener">Download the game</a>
     </div>
   </div>
 </div>
@@ -692,20 +692,20 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <div class="project-page" id="project-portal">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/portal_hero.png" alt="Portal 2">
+  <img loading="lazy" class="pp-hero" src="images/portal_hero.png" alt="Portal 2">
   <h1>Level Design — Portal 2</h1>
   <div class="pp-tags"><span class="tag hl">Level Design</span><span class="tag">Puzzle Design</span><span class="tag">Portal 2 Editor</span><span class="tag">Difficulty 2/4</span></div>
   <div class="pp-body">
     <p>Custom puzzle level created using the <strong>Portal 2</strong> game editor. The main theme is <strong>Laser Beams</strong>. The aim is to use a laser beam to ricochet off different points to trigger the appearance of a reflective cube, which is then used to open the level's exit door.</p>
     <h2>Gameplay Video</h2>
-    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/7ysPE9Ij3Vk?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/7ysPE9Ij3Vk?rel=0&modestbranding=1" title="Portal 2 — level gameplay video" allowfullscreen></iframe></div>
     <h2>Design Intent</h2>
     <p><strong>Verticality</strong> is a component I try to implement in all the levels I build. In this puzzle, the "understanding twist" comes when the player spots the laser reception point located high up — with their back to it as they enter — and understands they have to use a portal above the exit door.</p>
     <h2>Difficulty & Iterations</h2>
     <p>Difficulty <strong>2 out of 4</strong> on a predetermined scale. Accessible, can be completed relatively quickly whether or not the player is familiar with puzzle games. Testing phases took place over several iterations with multiple testers to avoid construction bias.</p>
     <p>The full design document is available for download below (in French).</p>
     <div class="pp-links">
-      <a href="https://ced783e5-5107-4dcf-ad51-5dc1216cb2d5.usrfiles.com/ugd/ced783_827bb2c446b54a288cf89ab0bd35308f.pdf" class="btn-secondary" target="_blank">Level Design Document (FR)</a>
+      <a href="https://ced783e5-5107-4dcf-ad51-5dc1216cb2d5.usrfiles.com/ugd/ced783_827bb2c446b54a288cf89ab0bd35308f.pdf" class="btn-secondary" target="_blank" rel="noopener">Level Design Document (FR)</a>
     </div>
   </div>
 </div>
@@ -715,7 +715,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <div class="project-page" id="project-econ">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/econ_cover.png" alt="Economic System Workshop">
+  <img loading="lazy" class="pp-hero" src="images/econ_cover.png" alt="Economic System Workshop">
   <h1>Economic System — Workshop</h1>
   <div class="pp-tags">
     <span class="tag hl">Game Design</span>
@@ -795,7 +795,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
 <div class="project-page" id="project-cthulhu">
 <div class="project-page-inner">
   <button class="pp-back" onclick="history.back()">← Back to projects</button>
-  <img class="pp-hero" src="images/cthulhu_main.webp" alt="Cthulhu The Cosmic Abyss" style="aspect-ratio:16/9;object-position:center top">
+  <img loading="lazy" class="pp-hero" src="images/cthulhu_main.webp" alt="Cthulhu The Cosmic Abyss" style="aspect-ratio:16/9;object-position:center top">
   <h1>Cthulhu: The Cosmic Abyss</h1>
   <div class="pp-tags">
     <span class="tag pro">QA Analyst</span>
@@ -813,10 +813,10 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>In this tense thriller inspired by the universe of Lovecraft, you play as <strong>Noah</strong> and investigate the mysterious disappearance of miners in the depths of the Pacific Ocean. With the help of your AI companion, <strong>Key</strong>, explore the vast labyrinthine prison of R'lyeh — an ancient sunken city of cyclopean dimensions — and attempt to resist the corruption of the mind caused by Cthulhu's influence. At its heart lies a secret that could shatter your understanding of reality.</p>
 
     <div class="pp-screenshots">
-      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251351680-JZ2QAHBP41MRC63TQOPB/Screenshot_1.jpg" alt="Cthulhu screenshot 1">
-      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251376927-RFJ8ROZOVTY8FCAVEORX/Screenshot_2.jpg" alt="Cthulhu screenshot 2">
-      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251377016-TYG4N3AX6AMQ1XA1H2C5/Screenshot_3.jpg" alt="Cthulhu screenshot 3">
-      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251379301-VHI594L6YVRAYV6KA6AW/Screenshot_4.jpg" alt="Cthulhu screenshot 4">
+      <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251351680-JZ2QAHBP41MRC63TQOPB/Screenshot_1.jpg" alt="Cthulhu screenshot 1">
+      <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251376927-RFJ8ROZOVTY8FCAVEORX/Screenshot_2.jpg" alt="Cthulhu screenshot 2">
+      <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251377016-TYG4N3AX6AMQ1XA1H2C5/Screenshot_3.jpg" alt="Cthulhu screenshot 3">
+      <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251379301-VHI594L6YVRAYV6KA6AW/Screenshot_4.jpg" alt="Cthulhu screenshot 4">
     </div>
 
     <h2>My Work at Big Bad Wolf Studio</h2>
@@ -855,15 +855,15 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <p>I was tasked with taking a sequence of images from Unreal Engine and working on them from a post-production standpoint, upgrading and improving the quality of the sequence. I cut and edited the cinematic, delivering <strong>three different versions</strong> for the direction to review. The selected version, entitled "Red Eyes", is in the final game.</p>
     <p>You can watch all 3 submitted proposals below:</p>
 
-    <div class="yt-wrapper" style="margin-bottom:0.75rem"><iframe src="https://www.youtube-nocookie.com/embed/e1ynNIXKx4I?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+    <div class="yt-wrapper" style="margin-bottom:0.75rem"><iframe src="https://www.youtube-nocookie.com/embed/e1ynNIXKx4I?rel=0&modestbranding=1" title="Cthulhu — cinematic &quot;Red Eyes&quot; (selected version)" allowfullscreen></iframe></div>
     <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1.5rem;text-align:center">Selected version — "Red Eyes" (in the final game)</p>
 
-    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/TMiAbnf3TOg?rel=0&modestbranding=1" allowfullscreen></iframe></div>
-    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1.5rem;text-align:center">All 3 proposals submitted to the direction</div>
+    <div class="yt-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/TMiAbnf3TOg?rel=0&modestbranding=1" title="Cthulhu — all 3 cinematic proposals" allowfullscreen></iframe></div>
+    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1.5rem;text-align:center">All 3 proposals submitted to the direction</p>
 
     <div class="pp-screenshots">
-      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251380208-0RWW2QYOM8MZA4Q2RCYU/Screenshot_5.jpg" alt="Cthulhu screenshot 5">
-      <img src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251379301-VHI594L6YVRAYV6KA6AW/Screenshot_4.jpg" alt="Cthulhu screenshot 4">
+      <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251380208-0RWW2QYOM8MZA4Q2RCYU/Screenshot_5.jpg" alt="Cthulhu screenshot 5">
+      <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5410aeefe4b0da480524a948/1741251379301-VHI594L6YVRAYV6KA6AW/Screenshot_4.jpg" alt="Cthulhu screenshot 4">
     </div>
 
     <h2>Quest Design — The Great Library of Abdul Al-Hazred</h2>
@@ -876,15 +876,15 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     <h2>Concept Art — AI Generated</h2>
     <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem">Concept images generated for the quest design document (AI generated, for visualization purposes only)</p>
     <div class="pp-screenshots full">
-      <img src="images/concept_vestibule.jpg" alt="Zone 0 — Vestibule de la Grande Bibliothèque">
+      <img loading="lazy" src="images/concept_vestibule.jpg" alt="Zone 0 — Vestibule de la Grande Bibliothèque">
     </div>
     <div class="pp-screenshots">
-      <img src="images/concept_archives_chair_1.jpg" alt="Zone 1 — Les Archives de la Chair">
-      <img src="images/concept_archives_chair_2.jpg" alt="Zone 1 — Les Archives de la Chair (vue 2)">
+      <img loading="lazy" src="images/concept_archives_chair_1.jpg" alt="Zone 1 — Les Archives de la Chair">
+      <img loading="lazy" src="images/concept_archives_chair_2.jpg" alt="Zone 1 — Les Archives de la Chair (vue 2)">
     </div>
     <div class="pp-screenshots">
-      <img src="images/concept_archives_chair_3.jpg" alt="Zone 1 — Les Archives de la Chair (vue 3)">
-      <img src="images/concept_porte_dagon.jpg" alt="Zone 2 — La Porte de Dagon">
+      <img loading="lazy" src="images/concept_archives_chair_3.jpg" alt="Zone 1 — Les Archives de la Chair (vue 3)">
+      <img loading="lazy" src="images/concept_porte_dagon.jpg" alt="Zone 2 — La Porte de Dagon">
     </div>
 
     <h2>Objectives</h2>
@@ -927,8 +927,8 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--border);display:flex;just
     </div>
 
     <div class="pp-links">
-      <a href="https://store.steampowered.com/app/2760560/Cthulhu_The_Cosmic_Abyss/" target="_blank" class="btn-primary">View on Steam ↗</a>
-      <a href="https://www.bigbadwolf-studio.com/the-cosmic-abyss" target="_blank" class="btn-secondary">Big Bad Wolf Studio ↗</a>
+      <a href="https://store.steampowered.com/app/2760560/Cthulhu_The_Cosmic_Abyss/" target="_blank" rel="noopener" class="btn-primary">View on Steam ↗</a>
+      <a href="https://www.bigbadwolf-studio.com/the-cosmic-abyss" target="_blank" rel="noopener" class="btn-secondary">Big Bad Wolf Studio ↗</a>
     </div>
 
   </div>
